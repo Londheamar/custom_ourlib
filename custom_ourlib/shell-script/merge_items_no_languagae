@@ -1,0 +1,141 @@
+#!/usr/bin/env perl
+use MARC::File::MARCMaker;
+use MARC::File::USMARC;
+
+use Data::Dumper;
+
+my %unique_biblios;
+
+my $file = MARC::File::MARCMaker->in( $ARGV[0] );
+while(my $record = $file->next()){
+
+    # these are the fields that determine a unique biblio record
+    my ($title, $author);
+    my $item_data;
+
+    for my $fields($record->{_fields}){
+        for my $field(@$fields){
+		## author data
+            if($field->{'_tag'} eq '100'){
+                my $i = 0;
+                for my $subfields($field->{'_subfields'}){
+                    if($subfields->[$i] eq 'a'){
+                        #print $subfields->[++$i]."\n";
+                        $author = $subfields->[++$i];
+						$author =~ s/^\s+//;
+						$author =~ s/\s*$//;
+                        last;
+                    }
+                }
+            }
+
+		## title data
+            if($field->{'_tag'} eq '245'){
+                my $j = 0;
+				my $subfields = $field->{'_subfields'};
+                #for my $subfields($field->{'_subfields'}){
+				#print Dumper($subfields);
+					while($j < scalar(@$subfields)){
+                    if($subfields->[$j] eq 'a'){
+                        $title = $subfields->[++$j];
+						$title =~ s/^\s*//;
+						$title =~ s/\s*$//;
+                        #last;
+                    }
+                    elsif($subfields->[$j] eq 'b'){
+                        $rem_title = $subfields->[++$j];
+						$rem_title =~ s/^\s*//;
+						$rem_title =~ s/\s*$//;
+                        #last;
+                    }
+                    elsif($subfields->[$j] eq 'c'){
+                        $responsibility_statement = $subfields->[++$j];
+						$responsibility_statement =~ s/^\s*//;
+						$responsibility_statement =~ s/\s*$//;
+                        #last;
+                    }
+					else{
+						$j++;
+					}
+					}# while ends
+                #}
+            }
+
+		## publication data
+			if($field->{'_tag'} eq '260'){
+				my $k = 0;
+				my $subfields = $field->{'_subfields'};
+				while($k < scalar(@$subfields)){
+                    if($subfields->[$k] eq 'a'){
+                        $pub_location = $subfields->[++$k];
+						$pub_location =~ s/^\s*//;
+						$pub_location =~ s/\s*$//;
+                        #last;
+                    }
+                    elsif($subfields->[$k] eq 'b'){
+                        $publisher = $subfields->[++$k];
+						$publisher =~ s/^\s*//;
+						$publisher =~ s/\s*$//;
+                        #last;
+                    }
+                    elsif($subfields->[$k] eq 'c'){
+                        $pub_year = $subfields->[++$k];
+						$pub_year =~ s/^\s*//;
+						$pub_year =~ s/\s*$//;
+                        #last;
+                    }
+					else{
+						$k++;
+					}
+				}# while ends
+			}
+
+            if($field->{'_tag'} eq '952'){
+                $item_data = $field;
+                #print Dumper($item_data);
+            }
+
+        }
+    }
+
+	#print "$author\n";
+	#print "$title\n";
+	#print "$rem_title\n";
+	#print "$responsibility_statement\n";
+	#print "----\n";
+	#next;
+    
+    if(defined $unique_biblios{'_'.$title}{'_'.$author}{'_'.$rem_title}{'_'.$responsibility_statement}{'_'.$pub_location}{'_'.$publisher}{'_'.$pub_year}){
+        # add item data 
+        $record = $unique_biblios{'_'.$title}{'_'.$author}{'_'.$rem_title}{'_'.$responsibility_statement}{'_'.$pub_location}{'_'.$publisher}{'_'.$pub_year};
+	eval{
+        	$record->insert_grouped_field($item_data);
+	};
+	if($@){
+		#print "There was some error while adding item of $title/$author \n";
+	}
+        #print "Added item\n";
+    }
+    else{
+        $unique_biblios{'_'.$title}{'_'.$author}{'_'.$rem_title}{'_'.$responsibility_statement}{'_'.$pub_location}{'_'.$publisher}{'_'.$pub_year} = $record;
+        #print "New biblio\n";
+    }
+}
+
+# Now create MARC file
+for my $title(keys %unique_biblios){
+    for my $author(keys %{$unique_biblios{$title}}){
+		for my $rem_title(keys %{$unique_biblios{$title}{$author}}){
+			for my $resp_statement(keys %{$unique_biblios{$title}{$author}{$rem_title}}){
+			for my $pub_location(keys %{$unique_biblios{$title}{$author}{$rem_title}{$resp_statement}}){
+			for my $publisher(keys %{$unique_biblios{$title}{$author}{$rem_title}{$resp_statement}{$pub_location}}){
+			for my $pub_year(keys %{$unique_biblios{$title}{$author}{$rem_title}{$resp_statement}{$pub_location}{$publisher}}){
+       			 $record = $unique_biblios{$title}{$author}{$rem_title}{$resp_statement}{$pub_location}{$publisher}{$pub_year};
+		        print MARC::File::MARCMaker->encode($record);
+			}
+			}
+			}
+			}
+		}
+    }
+}

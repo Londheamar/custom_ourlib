@@ -1,0 +1,117 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use MARC::File::MARCMaker;
+use MARC::File::USMARC;
+use MARC::Record;
+use MARC::Field;
+use Data::Dumper;
+
+my %unique_biblios;
+
+# Open MARC Maker input
+my $file = MARC::File::MARCMaker->in($ARGV[0]);
+
+while (my $raw_record = $file->next()) {
+
+    # Create a new MARC::Record object for this iteration
+    my $record = MARC::Record->new();
+
+    my ($title, $rem_title, $author, $responsibility_statement, $pub_location, $publisher, $pub_year, $language);
+    my $item_data;
+
+    # Loop over fields in the raw record
+    for my $field (@{$raw_record->{_fields}}) {
+        my $tag = $field->{_tag};
+        my $subfields = $field->{_subfields} || [];
+
+        # Create MARC::Field object
+        my %sf_pairs;
+        for (my $i = 0; $i < @$subfields; $i += 2) {
+            $sf_pairs{$subfields->[$i]} = $subfields->[$i+1];
+        }
+        my $marc_field = MARC::Field->new($tag, $field->{_ind1} // '', $field->{_ind2} // '', %sf_pairs);
+
+        # Add field to MARC::Record
+        $record->append_fields($marc_field);
+
+        # these are the fields that determine a unique biblio record
+        if ($tag eq '100') {
+            $author = $sf_pairs{'a'} // '';
+            $author =~ s/^\s+|\s+$//g;
+        }
+        if ($tag eq '041') {
+            $language = $sf_pairs{'a'} // 'unknown';
+            $language =~ s/^\s+|\s+$//g;
+        }
+        if ($tag eq '245') {
+            $title = $sf_pairs{'a'} // '';
+            $rem_title = $sf_pairs{'b'} // '';
+            $responsibility_statement = $sf_pairs{'c'} // '';
+            $title =~ s/^\s+|\s+$//g;
+            $rem_title =~ s/^\s+|\s+$//g;
+            $responsibility_statement =~ s/^\s+|\s+$//g;
+        }
+        if ($tag eq '260') {
+            $pub_location = $sf_pairs{'a'} // '';
+            $publisher = $sf_pairs{'b'} // '';
+            $pub_year = $sf_pairs{'c'} // '';
+            $pub_location =~ s/^\s+|\s+$//g;
+            $publisher =~ s/^\s+|\s+$//g;
+            $pub_year =~ s/^\s+|\s+$//g;
+        }
+        if ($tag eq '952') {
+            # 952 is the item field, create MARC::Field object for insertion
+            $item_data = MARC::Field->new('952', '', '', %sf_pairs);
+        }
+    }
+
+    # Default language if not set
+    $language ||= 'unknown';
+    my $lang_key = '_' . $language;
+
+    # Initialize missing variables for uniqueness keys
+    $title ||= '';
+    $rem_title ||= '';
+    $author ||= '';
+    $responsibility_statement ||= '';
+    $pub_location ||= '';
+    $publisher ||= '';
+    $pub_year ||= '';
+
+    # Add item to existing biblio or create new
+    if (defined $unique_biblios{'_'.$title}{'_'.$author}{'_'.$rem_title}{'_'.$responsibility_statement}{'_'.$pub_location}{'_'.$publisher}{'_'.$pub_year}{$lang_key}) {
+        my $existing_record = $unique_biblios{'_'.$title}{'_'.$author}{'_'.$rem_title}{'_'.$responsibility_statement}{'_'.$pub_location}{'_'.$publisher}{'_'.$pub_year}{$lang_key};
+        eval {
+            $existing_record->insert_grouped_field($item_data) if $item_data;
+        };
+        if ($@) {
+            warn "Error adding item for $title/$author/$language: $@\n";
+        }
+    } else {
+        $unique_biblios{'_'.$title}{'_'.$author}{'_'.$rem_title}{'_'.$responsibility_statement}{'_'.$pub_location}{'_'.$publisher}{'_'.$pub_year}{$lang_key} = $record;
+        # Also insert 952 if exists
+        $record->insert_grouped_field($item_data) if $item_data;
+    }
+}
+
+# Now create MARC file
+for my $title (keys %unique_biblios) {
+    for my $author (keys %{$unique_biblios{$title}}) {
+        for my $rem_title (keys %{$unique_biblios{$title}{$author}}) {
+            for my $resp_statement (keys %{$unique_biblios{$title}{$author}{$rem_title}}) {
+                for my $pub_location (keys %{$unique_biblios{$title}{$author}{$rem_title}{$resp_statement}}) {
+                    for my $publisher (keys %{$unique_biblios{$title}{$author}{$rem_title}{$resp_statement}{$pub_location}}) {
+                        for my $pub_year (keys %{$unique_biblios{$title}{$author}{$rem_title}{$resp_statement}{$pub_location}{$publisher}}) {
+                            for my $lang_key (keys %{$unique_biblios{$title}{$author}{$rem_title}{$resp_statement}{$pub_location}{$publisher}{$pub_year}}) {
+                                my $record = $unique_biblios{$title}{$author}{$rem_title}{$resp_statement}{$pub_location}{$publisher}{$pub_year}{$lang_key};
+                                print MARC::File::MARCMaker->encode($record);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

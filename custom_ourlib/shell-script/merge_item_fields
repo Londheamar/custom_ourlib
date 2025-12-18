@@ -1,0 +1,180 @@
+#!/usr/bin/env perl
+
+# This script accepts .mrk file as a command line argument
+# Merges fields related to items of biblios
+# Outputs on the standard output
+# 952 is the field number in MARC21 bibliographic framework
+#
+
+
+# Updates by Amar
+# commented if block of $seven_hundred
+
+use strict;
+use warnings;
+
+# and empty hash to hold a bibliographic record at a time
+my $item_field; #952$p, 952$y etc
+my $class_name_field = ''; # 082$a,082$b etc
+my $author_field; # authors 245$a, $b etc
+my $distro_field; # publication - place, date etc.
+my $eighty_four;
+my $three_hundred;
+my $four_forty;
+my $five_forty_one;
+my $forty_one;
+my $two_seventy;
+my $five_forty_six;
+my $seven_hundred;
+
+my $f = $ARGV[0];
+
+open FH, $f;
+	while(<FH>){
+		# check end of a record
+		# blank line in a .mrk file marks the end of a record
+		if(/^\s*$/){
+			# merge and output the 245 field
+			print '=245  \\\\'.$author_field."\n";
+			$author_field = '';
+			# merge and output the 260 field
+			print '=260  \\\\'.$distro_field."\n";
+			$distro_field = '';
+			# merge and output the 082 field
+			print '=082  \\\\'.$class_name_field."\n";
+			$class_name_field = '';
+
+			# merge and output the 084 field
+			if($eighty_four){
+			print '=084  \\\\'.$eighty_four."\n";
+			$eighty_four = '';
+			}
+
+			# merge and output the 300 field
+			if($three_hundred){
+			print '=300  \\\\'.$three_hundred."\n";
+			$three_hundred = '';
+			}
+
+			# merge and output the 440 field
+			if($four_forty){
+			print '=440  \\\\'.$four_forty."\n";
+			$four_forty = '';
+			}
+
+			# merge and output the 541 field
+			if($five_forty_one){
+			print '=541  \\\\'.$five_forty_one."\n";
+			$five_forty_one = '';
+			}
+
+			# merge and output the 41 field
+			if($forty_one){
+			print '=41  \\\\'.$forty_one."\n";
+			$forty_one = '';
+			}
+
+			# merge and output the 270 field
+			if($two_seventy){
+				print '=270  \\\\'.$two_seventy."\n";
+				$two_seventy = '';
+			}
+
+			# merge and output the 546 field
+			if($five_forty_six){
+				print '=546  \\\\'.$five_forty_six."\n";
+				$five_forty_six = '';
+			}
+
+			# merge and output the 700 field
+			#if($seven_hundred) {
+			#	print '=700  \\\\'.$seven_hundred."\n";
+			#	$seven_hundred = '';
+			#}
+
+			# merge and output the 952 field
+			# this should be the last line in the record
+			# so, ends with two newlines
+			print '=952  \\\\'.$item_field."\n\n";
+			$item_field = '';
+		}
+		elsif(/^=260\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=260\s\s\\\\//;
+				$distro_field .= $line;
+		}
+		elsif(/^=245\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=245\s\s\\\\//;
+				$author_field .= $line;
+		}
+		elsif(/^=082\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=082\s\s\\\\//;
+				$class_name_field .= $line;
+		}
+		elsif(/^=084\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=084\s\s\\\\//;
+				$eighty_four .= $line;
+		}
+		elsif(/^=300\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=300\s\s\\\\//;
+				$three_hundred .= $line;
+		}
+		elsif(/^=440\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=440\s\s\\\\//;
+				$four_forty .= $line;
+		}
+		elsif(/^=541\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=541\s\s\\\\//;
+				$five_forty_one .= $line;
+		}
+		elsif(/^=41\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=41\s\s\\\\//;
+				$forty_one .= $line;
+		}
+		elsif(/^=270\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=270\s\s\\\\//;
+				$two_seventy .= $line;
+		}
+		elsif(/^=546\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=546\s\s\\\\//;
+				$five_forty_six .= $line;
+		}
+		#elsif(/^=700\s\s/){
+		#		my $line = $_;
+		#		chomp $line;
+		#		$line =~ s/^=700\s\s\\\\//;
+		#		$seven_hundred .= $line;
+		#}
+		else{
+			# split the data and create key/pair
+			if(/^=952\s\s/){
+				my $line = $_;
+				chomp $line;
+				$line =~ s/^=952\s\s\\\\//;
+				$item_field .= $line;
+			}
+			else{
+				print $_;	
+			}
+		}
+	}
+ 		 close FH;

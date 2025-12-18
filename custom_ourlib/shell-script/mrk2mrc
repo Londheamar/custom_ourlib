@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+use MARC::File::MARCMaker;
+use MARC::File::USMARC;
+
+my $file = MARC::File::MARCMaker->in( $ARGV[0] );
+while(my $record = $file->next()){
+	#print MARC::File::MARCMaker->encode($record);
+	print MARC::File::USMARC->encode($record);
+}

@@ -1,0 +1,372 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-12-11 14:57:10.409746",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_name",
+  "column_break_sazpk",
+  "company_logo",
+  "section_break_bhygj",
+  "customer",
+  "welcome_text",
+  "contact_email_id",
+  "library_timing",
+  "library_address",
+  "library_icon_logo",
+  "column_break_shxts",
+  "library_name",
+  "library_slogan",
+  "feedback_email_id",
+  "contact_number",
+  "poster_links",
+  "section_break_o8rfa",
+  "web_links",
+  "color_theme_section",
+  "color_primary",
+  "column_break_tsxjw",
+  "color_primary_dark",
+  "column_break_rx52e",
+  "color_accent",
+  "column_break_svhky",
+  "text_color",
+  "naming_series",
+  "configuration_tab",
+  "isdbaccesswritable",
+  "column_break_9gsyt",
+  "isrenewalallowed",
+  "column_break_ldrjm",
+  "attendance_flag",
+  "column_break_2gg5n",
+  "acceptpaymentonline",
+  "section_break_hnve7",
+  "paytype",
+  "section_break_zwwbr",
+  "authtype",
+  "koha_database_details_section",
+  "hostserver",
+  "username",
+  "column_break_v9p8h",
+  "database",
+  "password",
+  "databasejs_section",
+  "database_configuration",
+  "issent"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "default": "Online Public Access Catalogue",
+   "fieldname": "welcome_text",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": " Welcome Text",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_email_id",
+   "fieldtype": "Data",
+   "label": "Contact Email Id",
+   "reqd": 1
+  },
+  {
+   "fieldname": "library_timing",
+   "fieldtype": "Data",
+   "label": "Library Timing"
+  },
+  {
+   "fieldname": "library_address",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Library Address",
+   "max_height": "100px",
+   "reqd": 1
+  },
+  {
+   "fieldname": "library_icon_logo",
+   "fieldtype": "Attach Image",
+   "label": "Library Icon (Logo)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_shxts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "library_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Library Name",
+   "reqd": 1
+  },
+  {
+   "default": "Journey Through Books",
+   "fieldname": "library_slogan",
+   "fieldtype": "Data",
+   "label": "Library Slogan",
+   "reqd": 1
+  },
+  {
+   "fieldname": "feedback_email_id",
+   "fieldtype": "Data",
+   "label": "Feedback Email Id"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contact Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "poster_links",
+   "fieldtype": "Table",
+   "label": "Poster Links",
+   "max_height": "100px",
+   "options": "Mobile App Poster Links",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_o8rfa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "{\"Ourlib\":\"https://ourlib.in\"}",
+   "description": "Add links like this array : {\"Display text\":\"URL\",\"Display text 2\":\"URL 2\"}",
+   "fieldname": "web_links",
+   "fieldtype": "JSON",
+   "label": "Web Links (use array)",
+   "max_height": "100px",
+   "reqd": 1
+  },
+  {
+   "fieldname": "color_theme_section",
+   "fieldtype": "Section Break",
+   "label": "Color theme"
+  },
+  {
+   "default": "#563d7c",
+   "fieldname": "color_primary",
+   "fieldtype": "Color",
+   "label": "Color Primary"
+  },
+  {
+   "fieldname": "column_break_tsxjw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#563d7c",
+   "fieldname": "color_primary_dark",
+   "fieldtype": "Color",
+   "label": "Color Primary Dark"
+  },
+  {
+   "fieldname": "column_break_rx52e",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#563d7c",
+   "fieldname": "color_accent",
+   "fieldtype": "Color",
+   "label": "Color Accent"
+  },
+  {
+   "fieldname": "column_break_svhky",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#000000",
+   "fieldname": "text_color",
+   "fieldtype": "Color",
+   "label": "Text Color"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Read Only",
+   "label": "naming_series",
+   "options": "MOB-APP-.YYYY.-"
+  },
+  {
+   "fieldname": "configuration_tab",
+   "fieldtype": "Tab Break",
+   "label": "Configuration"
+  },
+  {
+   "default": "0",
+   "fieldname": "isrenewalallowed",
+   "fieldtype": "Check",
+   "label": "isRenewalAllowed"
+  },
+  {
+   "default": "0",
+   "fieldname": "acceptpaymentonline",
+   "fieldtype": "Check",
+   "label": "acceptPaymentOnline"
+  },
+  {
+   "fieldname": "authtype",
+   "fieldtype": "Select",
+   "label": "authType",
+   "options": "KOHA\nLDAP",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "isdbaccesswritable",
+   "fieldtype": "Check",
+   "label": "isDbAccessWritable"
+  },
+  {
+   "fieldname": "column_break_9gsyt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_hnve7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_2gg5n",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "paytype",
+   "fieldtype": "Select",
+   "label": "Payment type",
+   "options": "Razor Pay\nPaypal"
+  },
+  {
+   "fieldname": "section_break_zwwbr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "koha_database_details_section",
+   "fieldtype": "Section Break",
+   "label": "Koha Database Details"
+  },
+  {
+   "fieldname": "hostserver",
+   "fieldtype": "Data",
+   "label": "Host/server",
+   "reqd": 1
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "username",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_v9p8h",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "database",
+   "fieldtype": "Data",
+   "label": "database",
+   "reqd": 1
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "password",
+   "reqd": 1
+  },
+  {
+   "fieldname": "databasejs_section",
+   "fieldtype": "Tab Break",
+   "label": "Database.js"
+  },
+  {
+   "description": "Copy this content and add in database.js file under client folder",
+   "fieldname": "database_configuration",
+   "fieldtype": "HTML Editor",
+   "label": "Database configuration"
+  },
+  {
+   "default": "1",
+   "fieldname": "issent",
+   "fieldtype": "Check",
+   "label": "isSent"
+  },
+  {
+   "fieldname": "column_break_ldrjm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "attendance_flag",
+   "fieldtype": "Check",
+   "label": "attendanceFlag"
+  },
+  {
+   "default": "Speech Markers Pvt. Ltd.",
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sazpk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "https://erp.ourlib.in/files/OurLib_Logo-black.png",
+   "fieldname": "company_logo",
+   "fieldtype": "Attach",
+   "label": "Company Logo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_bhygj",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "App Installation Fcm Tokens",
+   "link_fieldname": "mobile_application"
+  }
+ ],
+ "modified": "2025-12-16 17:57:29.217534",
+ "modified_by": "Administrator",
+ "module": "Custom App For Ourlib",
+ "name": "Mobile Application",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer",
+ "track_changes": 1,
+ "track_views": 1
+}

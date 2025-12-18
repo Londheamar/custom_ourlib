@@ -1,0 +1,177 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-12 18:09:43.555986",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "fcmtoken",
+  "useripaddress",
+  "uid",
+  "column_break_j1qdk",
+  "mobile_application",
+  "status",
+  "androidversion",
+  "cardnumber_username",
+  "section_break_67x7p",
+  "isuserloggedin",
+  "column_break_b1nk2",
+  "isgenpushsent",
+  "column_break_xe8kf",
+  "isnewarrivalpushsent",
+  "section_break_yg0d8",
+  "overdue_notified_at",
+  "column_break_dw3tk",
+  "advancedue_notified_at",
+  "column_break_pi9db",
+  "due_notified_at"
+ ],
+ "fields": [
+  {
+   "fetch_from": "mobile_application.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "mobile_application",
+   "fieldtype": "Link",
+   "label": "Mobile Application",
+   "options": "Mobile Application"
+  },
+  {
+   "fieldname": "fcmtoken",
+   "fieldtype": "Text",
+   "label": "fcmToken"
+  },
+  {
+   "default": "active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "status",
+   "options": "active\ninactive"
+  },
+  {
+   "fieldname": "useripaddress",
+   "fieldtype": "Data",
+   "label": "User IP Address"
+  },
+  {
+   "fieldname": "uid",
+   "fieldtype": "Data",
+   "label": "uid"
+  },
+  {
+   "fieldname": "cardnumber_username",
+   "fieldtype": "Data",
+   "label": "cardnumber_username"
+  },
+  {
+   "default": "0",
+   "fieldname": "isuserloggedin",
+   "fieldtype": "Check",
+   "label": "isUserLoggedIn"
+  },
+  {
+   "default": "0",
+   "fieldname": "isgenpushsent",
+   "fieldtype": "Check",
+   "label": "isGenPushSent"
+  },
+  {
+   "default": "0",
+   "fieldname": "isnewarrivalpushsent",
+   "fieldtype": "Check",
+   "label": "isNewArrivalPushSent"
+  },
+  {
+   "fieldname": "overdue_notified_at",
+   "fieldtype": "Datetime",
+   "label": "overdue_notified_at"
+  },
+  {
+   "fieldname": "advancedue_notified_at",
+   "fieldtype": "Datetime",
+   "label": "advancedue_notified_at"
+  },
+  {
+   "fieldname": "due_notified_at",
+   "fieldtype": "Datetime",
+   "label": "due_notified_at"
+  },
+  {
+   "fieldname": "section_break_67x7p",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_b1nk2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xe8kf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_yg0d8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_dw3tk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pi9db",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_j1qdk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "androidversion",
+   "fieldtype": "Data",
+   "label": "Android Version"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-16 17:48:37.384345",
+ "modified_by": "Administrator",
+ "module": "Custom App For Ourlib",
+ "name": "App Installation Fcm Tokens",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

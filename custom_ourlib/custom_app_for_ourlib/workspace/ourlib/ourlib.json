@@ -1,0 +1,91 @@
+{
+ "charts": [
+  {
+   "chart_name": "Mobile Applications",
+   "label": "Mobile Applications - Monthly"
+  }
+ ],
+ "content": "[{\"id\":\"D6C628WsY2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ourlib</span>\",\"col\":12}},{\"id\":\"C5-MjdG-Ed\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Mobile Applications - Monthly\",\"col\":12}},{\"id\":\"sXLRtjmmC6\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"fykquHjHad\",\"type\":\"card\",\"data\":{\"card_name\":\"Mobile Application\",\"col\":4}},{\"id\":\"r7dq51BsfV\",\"type\":\"card\",\"data\":{\"card_name\":\"Utilities\",\"col\":4}}]",
+ "creation": "2025-12-11 17:00:10.972767",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Ourlib",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Utilities",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "CSV to MRC",
+   "link_count": 0,
+   "link_to": "CSV To MRC",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Mobile Application",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Enabled Apps",
+   "link_count": 0,
+   "link_to": "Mobile Application",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Installations",
+   "link_count": 0,
+   "link_to": "appInstallationsAndFcmTokens",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "App Firebase Notifications",
+   "link_count": 0,
+   "link_to": "push_notifications_manager",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-12-12 18:34:10.838490",
+ "modified_by": "Administrator",
+ "module": "Custom App For Ourlib",
+ "name": "Ourlib",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "Ourlib"
+}

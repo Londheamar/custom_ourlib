@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-12-11 16:08:15.270932",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "section_break_8els8",
+  "file",
+  "validation_status",
+  "column_break_8ogov",
+  "final_mrc_file_path",
+  "mrc_status",
+  "section_break_l3rgv",
+  "validation_rules",
+  "column_break_oif4h",
+  "validation_error",
+  "naming_series",
+  "total_time_taken"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_8els8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "file",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Original File",
+   "reqd": 1
+  },
+  {
+   "fieldname": "validation_status",
+   "fieldtype": "Select",
+   "label": "Validation Status",
+   "options": "\nFailed\nSuccess"
+  },
+  {
+   "fieldname": "column_break_8ogov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "final_mrc_file_path",
+   "fieldtype": "Attach",
+   "label": "MRC file ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mrc_status",
+   "fieldtype": "Select",
+   "label": "MRC status",
+   "options": "\nFailed\nSuccess"
+  },
+  {
+   "fieldname": "section_break_l3rgv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "validation_error",
+   "fieldtype": "Text",
+   "label": "CSV Validation Errors",
+   "max_height": "150px"
+  },
+  {
+   "default": "{\n    \"date_format\": \"yyyy-mm-dd\",\n    \"date_fields\": [\"952$d\", \"952$w\"],\n    \"required_columns\": [\"245$a\",\"100$a\"],\n    \"delimeter\": \"!#\",\n    \"junk_chars\": \"new_line\"\n}",
+   "fieldname": "validation_rules",
+   "fieldtype": "JSON",
+   "label": "CSV Validation rules",
+   "max_height": "150px"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Read Only",
+   "label": "naming_series",
+   "options": "CSV-MRC-.YYYY.-"
+  },
+  {
+   "fieldname": "column_break_oif4h",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_time_taken",
+   "fieldtype": "Data",
+   "label": "Total time taken"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-12 13:48:30.833691",
+ "modified_by": "Administrator",
+ "module": "Custom App For Ourlib",
+ "name": "CSV To MRC",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
