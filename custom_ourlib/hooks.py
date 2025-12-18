@@ -6,20 +6,20 @@ app_email = "admin@ourlib.in"
 app_license = "MIT"
 
 
-fixtures = [
-    {
-        "dt": "Workspace",
-        "filters": [
-            ["module", "=", "Custom App For Ourlib"]
-        ]
-    },
-    {
-        "dt": "Dashboard Chart",
-        "filters": [
-            ["module","=", "Custom App For Ourlib"]
-        ]
-    },
-]
+# fixtures = [
+#     {
+#         "dt": "Workspace",
+#         "filters": [
+#             ["module", "=", "Custom App For Ourlib"]
+#         ]
+#     },
+#     {
+#         "dt": "Dashboard Chart",
+#         "filters": [
+#             ["module","=", "Custom App For Ourlib"]
+#         ]
+#     },
+# ]
 
 
 # Includes in <head>

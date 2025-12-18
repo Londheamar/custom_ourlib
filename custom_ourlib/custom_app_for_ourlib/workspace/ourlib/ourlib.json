@@ -6,7 +6,7 @@
   }
  ],
  "content": "[{\"id\":\"D6C628WsY2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ourlib</span>\",\"col\":12}},{\"id\":\"C5-MjdG-Ed\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Mobile Applications - Monthly\",\"col\":12}},{\"id\":\"sXLRtjmmC6\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"fykquHjHad\",\"type\":\"card\",\"data\":{\"card_name\":\"Mobile Application\",\"col\":4}},{\"id\":\"r7dq51BsfV\",\"type\":\"card\",\"data\":{\"card_name\":\"Utilities\",\"col\":4}}]",
- "creation": "2025-12-11 17:00:10.972767",
+ "creation": "2025-12-18 15:19:22.446027",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -57,9 +57,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Installations",
+   "label": "Installed Apps",
    "link_count": 0,
-   "link_to": "appInstallationsAndFcmTokens",
+   "link_to": "App Installation Fcm Tokens",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -67,7 +67,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "App Firebase Notifications",
+   "label": "Push Notifications",
    "link_count": 0,
    "link_to": "push_notifications_manager",
    "link_type": "DocType",
@@ -75,7 +75,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-12-12 18:34:10.838490",
+ "modified": "2025-12-18 15:30:07.449839",
  "modified_by": "Administrator",
  "module": "Custom App For Ourlib",
  "name": "Ourlib",
