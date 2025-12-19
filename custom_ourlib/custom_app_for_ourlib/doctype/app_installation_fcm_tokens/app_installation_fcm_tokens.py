@@ -60,7 +60,12 @@ def insert_new_id(**kwargs):
     :param action: "create" to insert a new record, "update" to update an existing one.
     """
     doctype_name = "App Installation Fcm Tokens"
+    
+    if not kwargs.get('data'):
+        return {"status": 400, "message": "Missing required argument: data"}
+
     data_dict = json.loads(kwargs.get('data'))
+
     uid = data_dict.get("uid")
     customer = data_dict.get("customer", "")
     fcmtoken = data_dict.get("fcmtoken")
