@@ -5,6 +5,7 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils.data import now_datetime
 from frappe.exceptions import DoesNotExistError, ValidationError
+import json
 
 class AppInstallationFcmTokens(Document):
 	pass
@@ -59,14 +60,16 @@ def insert_new_id(**kwargs):
     :param action: "create" to insert a new record, "update" to update an existing one.
     """
     doctype_name = "App Installation Fcm Tokens"
-    uid = kwargs.get("uid")
-    customer = kwargs.get("customer", "")
-    fcmtoken = kwargs.get("fcmtoken")
-    useripaddress = kwargs.get("useripaddress", "")
-    androidversion = kwargs.get("androidversion", "")
-    cardnumber_username = kwargs.get("cardnumber_username", "")
-    isuserloggedin = kwargs.get("isuserloggedin", False) # Provide a sensible default
-    action = kwargs.get("action", "create") # Default action to "create"
+    data_dict = json.loads(kwargs.get('data'))
+    uid = data_dict.get("uid")
+    customer = data_dict.get("customer", "")
+    fcmtoken = data_dict.get("fcmtoken")
+    useripaddress = data_dict.get("useripaddress", "")
+    androidversion = data_dict.get("androidversion", "")
+    cardnumber_username = data_dict.get("cardnumber_username", "")
+    isuserloggedin = data_dict.get("isuserloggedin", False)
+    action = data_dict.get("action", "create")
+
     # --- 1. Basic Validation ---
     if not uid:
         return {"status": 400, "message": "Missing required argument: uid (Unique ID)"}
@@ -78,7 +81,6 @@ def insert_new_id(**kwargs):
 
         # Check if uid already exists to prevent duplicates
         if frappe.db.exists(doctype_name, {"uid": uid}):
-             # Note: You might want to update the existing record instead of returning an error
              return {"status": 409, "message": f"Record with UID '{uid}' already exists. Use 'update' action instead."}
 
         try:
@@ -89,7 +91,7 @@ def insert_new_id(**kwargs):
                 "fcmtoken": fcmtoken,
                 "useripaddress": useripaddress,
                 "androidversion": androidversion,
-                "last_updated_at": now_datetime() # Add a timestamp field to the DocType
+                "last_updated_at": now_datetime()
             })
 
             new_doc.insert(ignore_permissions=False) # Respect permissions
