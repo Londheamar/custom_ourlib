@@ -61,12 +61,12 @@ def update_pass(password):
 
     unique_list = list(unique.values())
 
-    docs = frappe.get_all("Koha Password Update Log", fields=["name"])
+    docs = frappe.get_all("Koha Password Update", fields=["name"])
     for d in docs:
-        frappe.delete_doc("Koha Password Update Log", d.name, force=True)
+        frappe.delete_doc("Koha Password Update", d.name, force=True)
 
     frappe.db.commit()
-    frappe.get_doc({"doctype": "Koha Password Update Log","customer": "Total Count","url":len(unique_list)}).insert(ignore_permissions=True)
+    frappe.get_doc({"doctype": "Koha Password Update","customer": "Total Count","url":len(unique_list)}).insert(ignore_permissions=True)
 
 
     for c in unique_list:
@@ -79,7 +79,7 @@ def update_pass(password):
         if base_url and base_url.endswith("/"):
             base_url = base_url[:-1]
 
-        lskd = frappe.get_doc({"doctype": "Koha Password Update Log","customer": c.name,"url": base_url, "status": "In Process", "error": "","password": password_to_update,}).insert(ignore_permissions=True)
+        lskd = frappe.get_doc({"doctype": "Koha Password Update","customer": c.name,"url": base_url, "status": "In Process", "error": "","password": password_to_update,}).insert(ignore_permissions=True)
         frappe.db.commit()
         try:
             getP_ID = make_get_request(base_url + "/api/v1/patrons?cardnumber=ourlib", auth=(username, password))
