@@ -19,25 +19,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Utilities",
-   "link_count": 1,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "CSV to MRC",
-   "link_count": 0,
-   "link_to": "CSV To MRC",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Mobile Application",
    "link_count": 3,
    "link_type": "DocType",
@@ -73,9 +54,38 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Utilities",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "CSV to MRC",
+   "link_count": 0,
+   "link_to": "CSV To MRC",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Koha admin password update",
+   "link_count": 0,
+   "link_to": "Koha Password Update",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-12-18 15:30:07.449839",
+ "modified": "2026-01-06 22:18:10.578456",
  "modified_by": "Administrator",
  "module": "Custom App For Ourlib",
  "name": "Ourlib",
