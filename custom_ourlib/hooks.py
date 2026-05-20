@@ -88,12 +88,12 @@ scheduler_events = {
 # ------------
 
 # before_install = "custom_ourlib.install.before_install"
-# after_install = "custom_ourlib.install.after_install"
+after_install = "custom_ourlib.install_support_ops.run_all"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "custom_ourlib.uninstall.before_uninstall"
+before_uninstall = "custom_ourlib.uninstall_support_ops.run_all"
 # after_uninstall = "custom_ourlib.uninstall.after_uninstall"
 
 # Integration Setup

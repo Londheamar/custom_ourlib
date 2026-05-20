@@ -9,126 +9,64 @@ class KSOSupportIssue(Document):
         """
         Triggers automatically right before the document is written to the database.
         """
-        # Option A: Always populate if the checklist is completely empty
+        # Populate if the checklist table is currently completely empty
         if not self.get("verification_steps"):
-            self.reload_checklist_data()
-            
-        # Option B: (Optional) If you want to force-reload whenever they switch modules:
-        if self.has_value_changed("module"):
             self.reload_checklist_data()
 
     def reload_checklist_data(self):
         self.set("verification_steps", [])
-        append_checklist(self)
+        append_checklist_from_template(self)
 
 
-CHECKLISTS = {
-    "Universal": [
-        "Ticket/Issue ID created",
-        "Date and time recorded",
-        "Reported by user/client captured",
-        "Product and module identified",
-        "Exact issue documented",
-        "Error screenshot attached if available",
-        "Error message copied exactly",
-        "Steps provided by user",
-        "Impact scope identified",
-        "Issue replicated or replication result documented",
-        "Evidence/logs checked",
-        "Root cause category selected",
-        "Resolution steps documented",
-        "Testing/validation completed",
-        "Client confirmation captured",
-    ],
-    "Circulation": [
-        "Same item tested with same patron",
-        "Same item tested with different patron",
-        "Item status verified: not withdrawn, lost, damaged, or already issued",
-        "Patron active membership verified",
-        "Patron category verified",
-        "Outstanding fines/restrictions checked",
-        "Circulation rules matrix checked",
-        "Branch transfer rules checked",
-        "Barcode/item record verified",
-        "Fine calculation verified",
-        "Issue/return/reissue workflow tested",
-        "SIP/self-check behavior tested if applicable",
-    ],
-    "OPAC": [
-        "Staff interface record checked",
-        "OPAC visibility checked",
-        "Suppression/hidden item settings verified",
-        "Zebra or Elasticsearch service status checked",
-        "Rebuild index requirement assessed",
-        "Browser console checked",
-        "OPAC template/customization reviewed",
-        "Cache cleared and retested",
-    ],
-    "Search": [
-        "VuFind search query replicated",
-        "Solr status checked",
-        "Record indexed in Solr verified",
-        "Facet behavior checked",
-        "Koha API/ILS driver connectivity checked",
-        "Search cache cleared",
-        "Index freshness verified",
-        "Authentication impact checked if user-specific",
-    ],
-    "Reports": [
-        "SQL syntax reviewed",
-        "GROUP BY logic validated",
-        "Date filters tested",
-        "Counts manually verified",
-        "Sample records validated",
-        "Slow query/performance reviewed",
-        "Export output tested",
-    ],
-    "Email": [
-        "SMTP settings verified",
-        "Authentication checked",
-        "Email queue checked",
-        "Template verified",
-        "Cron job verified",
-        "Delivery logs checked",
-        "Spam/bounce possibility assessed",
-    ],
-    "Cron Jobs": [
-        "Cron service status checked",
-        "Koha cron configuration checked",
-        "Scheduler timing verified",
-        "Relevant log reviewed",
-        "Manual job run tested if safe",
-        "Recent OS/package change reviewed",
-    ],
-    "SIP2": [
-        "SIP listener status checked",
-        "Port/firewall checked",
-        "SIP account credentials verified",
-        "Branch mapping checked",
-        "Item/patron test transaction performed",
-        "Self-check/kiosk tested",
-    ],
-    "Footfall": [
-        "Scanner tested",
-        "Auto-enter behavior verified",
-        "Counter increment verified",
-        "Duplicate prevention checked",
-        "Dashboard total manually verified",
-    ],
-}
+def append_checklist_from_template(doc):
+    """
+    Fetches matching steps from KSO SOP Template using Product & Module filters,
+    falling back to a 'Universal' template if a specific one isn't found.
+    Ensures all tracking metadata fields start clean/empty.
+    """
+    steps_to_add = []
 
-def append_checklist(doc):
-    module = doc.module or "Universal"
-    steps = CHECKLISTS.get("Universal", []) + CHECKLISTS.get(module, [])
-    for step in steps:
+    # 1. Fetch steps from a module-specific template if product and module match
+    if doc.product and doc.module:
+        specific_template = frappe.db.get_value(
+            "KSO SOP Template", 
+            {"product": doc.product, "module": doc.module}, 
+            "name"
+        )
+        if specific_template:
+            template_doc = frappe.get_cached_doc("KSO SOP Template", specific_template)
+            for row in template_doc.verification_steps:
+                if row.verification_step:
+                    steps_to_add.append(row.verification_step)
+
+    # 2. Always fetch 'Universal' fallback steps if a separate Universal template exists
+    universal_template = frappe.db.get_value(
+        "KSO SOP Template", 
+        {"template_name": "SOP-Universal"}, 
+        "name"
+    )
+    if universal_template:
+        u_template_doc = frappe.get_cached_doc("KSO SOP Template", universal_template)
+        for row in u_template_doc.verification_steps:
+            if row.verification_step and row.verification_step not in steps_to_add:
+                steps_to_add.append(row.verification_step)
+
+    # 3. Append gathered steps directly to our Support Issue child table (All metadata empty)
+    for step in steps_to_add:
         doc.append("verification_steps", {
             "verification_step": step,
-            "completed": 0
+            "completed": 0,
+            "notes": None,
+            "verified_by": None,
+            "verification_time": None
         })
 
-# Keep this function whitelisted ONLY if you still want to allow manual overrides via API/Button
+
 @frappe.whitelist()
 def load_checklist(issue_name):
+    """
+    Whitelisted API fallback engine to force manual overrides/reloads via actions
+    """
     doc = frappe.get_doc("KSO Support Issue", issue_name)
     doc.reload_checklist_data()
     doc.save(ignore_permissions=True)
