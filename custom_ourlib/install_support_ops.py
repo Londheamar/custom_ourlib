@@ -6,7 +6,7 @@
 import frappe
 from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 
-CREATE_DEMO_DATA = True
+CREATE_DEMO_DATA = False
 
 ROLES = [
     "Support Agent",
@@ -132,7 +132,7 @@ CHECKLISTS = {
 def run_all():
     frappe.only_for("System Manager")
     create_roles()
-    create_doctypes()
+    #create_doctypes()
     create_workflow()
     create_client_script()
     create_notifications()

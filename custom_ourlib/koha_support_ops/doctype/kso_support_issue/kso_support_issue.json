@@ -77,17 +77,20 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Client",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "site_name",
    "fieldtype": "Data",
-   "label": "Site Name"
+   "label": "Site Name",
+   "reqd": 1
   },
   {
    "fieldname": "reported_by",
    "fieldtype": "Data",
-   "label": "Reported By"
+   "label": "Reported By",
+   "reqd": 1
   },
   {
    "fieldname": "contact_email",
@@ -135,7 +138,8 @@
    "fieldname": "priority",
    "fieldtype": "Select",
    "label": "Priority",
-   "options": "\nUrgent\nHigh\nMedium\nLow"
+   "options": "\nUrgent\nHigh\nMedium\nLow",
+   "reqd": 1
   },
   {
    "default": "New",
@@ -159,13 +163,15 @@
   {
    "fieldname": "assigned_team",
    "fieldtype": "Data",
-   "label": "Assigned Team"
+   "label": "Assigned Team",
+   "reqd": 1
   },
   {
    "fieldname": "assigned_engineer",
    "fieldtype": "Link",
    "label": "Assigned Engineer",
-   "options": "User"
+   "options": "User",
+   "reqd": 1
   },
   {
    "fieldname": "description_section",
@@ -175,12 +181,14 @@
   {
    "fieldname": "detailed_description",
    "fieldtype": "Text",
-   "label": "Detailed Description"
+   "label": "Detailed Description",
+   "reqd": 1
   },
   {
    "fieldname": "exact_error_message",
    "fieldtype": "Code",
-   "label": "Exact Error Message"
+   "label": "Exact Error Message",
+   "reqd": 1
   },
   {
    "fieldname": "steps_to_reproduce",
@@ -348,7 +356,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-05-20 14:43:08.176310",
+ "modified": "2026-05-20 17:38:53.874893",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",
