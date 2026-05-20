@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-20 11:50:33.925074",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "action_type",
+  "description",
+  "risk_level",
+  "backup_taken",
+  "executed_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "action_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Action Type",
+   "options": "\nConfiguration Update\nData Correction\nSQL Fix\nReindex\nRestart Service\nPatch Applied\nPermission Update\nCache Clear\nCustom Code Fix\nRollback\nWorkaround\nMonitoring Only"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Risk Level",
+   "options": "\nLow\nMedium\nHigh\nCritical"
+  },
+  {
+   "default": "0",
+   "fieldname": "backup_taken",
+   "fieldtype": "Check",
+   "label": "Backup Taken"
+  },
+  {
+   "fieldname": "executed_by",
+   "fieldtype": "Link",
+   "label": "Executed By",
+   "options": "User"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-20 11:50:33.925074",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "KSO Resolution Action",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,166 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2026-05-20 11:50:34.730832",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "category",
+  "symptoms",
+  "resolution",
+  "related_rca",
+  "related_module"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "\nCirculation\nOPAC/Search\nSIP2\nSMTP\nSolr\nZebra\nElasticsearch\nSQL Reports\nPatron Issues\nAuthentication\nFootfall\nInfrastructure"
+  },
+  {
+   "fieldname": "symptoms",
+   "fieldtype": "Text",
+   "label": "Symptoms"
+  },
+  {
+   "fieldname": "resolution",
+   "fieldtype": "Text Editor",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "related_rca",
+   "fieldtype": "Select",
+   "label": "Related RCA",
+   "options": "\nConfiguration Issue\nPermission Issue\nData Issue\nData Corruption\nSQL/Report Defect\nZebra Index Failure\nElasticsearch Failure\nSolr Failure\nCron Failure\nSMTP Failure\nSIP Connectivity\nCustomization Defect\nUpgrade Regression\nServer Resource Issue\nDatabase Issue\nNetwork Issue\nUnknown/Pending"
+  },
+  {
+   "fieldname": "related_module",
+   "fieldtype": "Select",
+   "label": "Related Module",
+   "options": "\nCirculation\nCataloguing\nAcquisitions\nSerials\nReports\nOPAC\nPatron Management\nSIP2\nNotices\nCron Jobs\nAuthorities\nMARC Framework\nOffline Circulation\nSearch\nSolr Index\nAuthentication\nFacets\nOPAC Integration\nDiscovery UI\nUser Accounts\nAPI Integration\nFootfall\nEmail\nLogin/Permissions\nData/Items\nOther"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-20 11:50:34.730832",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "KSO Knowledge Base Article",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Senior Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Infra Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Reporting Specialist",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Client Viewer",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title"
+}

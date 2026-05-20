@@ -6,6 +6,15 @@ app_email = "admin@ourlib.in"
 app_license = "MIT"
 
 
+
+
+scheduler_events = {
+    "hourly": [
+        "custom_ourlib.tasks.sla.check_sla"
+    ]
+}
+
+
 # fixtures = [
 #     {
 #         "dt": "Workspace",

@@ -1,0 +1,460 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "SUP-.YYYY.-.#####",
+ "creation": "2026-05-20 11:50:35.023543",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subject",
+  "client_section",
+  "client",
+  "site_name",
+  "column_break_uwh3v",
+  "reported_by",
+  "contact_email",
+  "classification_section",
+  "product",
+  "module",
+  "environment",
+  "column_break_u5ydm",
+  "severity",
+  "priority",
+  "version_details",
+  "column_break_mvhc2",
+  "support_status",
+  "impact_scope",
+  "browser_details",
+  "assignment_section",
+  "assigned_team",
+  "column_break_gh8rh",
+  "assigned_engineer",
+  "description_section",
+  "detailed_description",
+  "column_break_ud3dp",
+  "exact_error_message",
+  "column_break_p5iap",
+  "steps_to_reproduce",
+  "verification_section",
+  "verification_steps",
+  "evidence",
+  "rca_section",
+  "root_cause_category",
+  "rca_entries",
+  "resolution_section",
+  "resolution_type",
+  "resolution_actions",
+  "permanent_fix_applied",
+  "preventive_action_required",
+  "resolution_summary",
+  "testing_section",
+  "testing_results",
+  "client_confirmation",
+  "escalation_section",
+  "escalated",
+  "escalation_level",
+  "sla_due",
+  "column_break_bfdod",
+  "first_response_time",
+  "resolved_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client_section",
+   "fieldtype": "Section Break",
+   "label": "Client / Site"
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "site_name",
+   "fieldtype": "Data",
+   "label": "Site Name"
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Data",
+   "label": "Reported By"
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email"
+  },
+  {
+   "fieldname": "classification_section",
+   "fieldtype": "Section Break",
+   "label": "Classification"
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Product",
+   "options": "\nKoha\nVuFind\nKoha + VuFind\nSIP\nSMTP\nSolr\nElasticsearch\nZebra\nApache/Nginx\nDatabase\nServer/Infrastructure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Module",
+   "options": "\nCirculation\nCataloguing\nAcquisitions\nSerials\nReports\nOPAC\nPatron Management\nSIP2\nNotices\nCron Jobs\nAuthorities\nMARC Framework\nOffline Circulation\nSearch\nSolr Index\nAuthentication\nFacets\nOPAC Integration\nDiscovery UI\nUser Accounts\nAPI Integration\nFootfall\nEmail\nLogin/Permissions\nData/Items\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Production",
+   "fieldname": "environment",
+   "fieldtype": "Select",
+   "label": "Environment",
+   "options": "\nProduction\nStaging\nUAT\nDevelopment"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "\nSev-1 Critical\nSev-2 High\nSev-3 Medium\nSev-4 Low",
+   "reqd": 1
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "\nUrgent\nHigh\nMedium\nLow"
+  },
+  {
+   "default": "New",
+   "fieldname": "support_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Support Status",
+   "options": "\nNew\nTriage\nInvestigation\nPending Client\nPending Vendor\nFix In Progress\nTesting\nMonitoring\nResolved\nClosed\nReopened"
+  },
+  {
+   "fieldname": "impact_scope",
+   "fieldtype": "Select",
+   "label": "Impact Scope",
+   "options": "\nSingle User\nMultiple Users\nDepartment\nBranch\nInstitution\nMulti-Tenant\nEntire System"
+  },
+  {
+   "fieldname": "assignment_section",
+   "fieldtype": "Section Break",
+   "label": "Assignment"
+  },
+  {
+   "fieldname": "assigned_team",
+   "fieldtype": "Data",
+   "label": "Assigned Team"
+  },
+  {
+   "fieldname": "assigned_engineer",
+   "fieldtype": "Link",
+   "label": "Assigned Engineer",
+   "options": "User"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Issue Description"
+  },
+  {
+   "fieldname": "detailed_description",
+   "fieldtype": "Text",
+   "label": "Detailed Description"
+  },
+  {
+   "fieldname": "exact_error_message",
+   "fieldtype": "Code",
+   "label": "Exact Error Message"
+  },
+  {
+   "fieldname": "steps_to_reproduce",
+   "fieldtype": "Text",
+   "label": "Steps To Reproduce"
+  },
+  {
+   "fieldname": "browser_details",
+   "fieldtype": "Data",
+   "label": "Browser Details"
+  },
+  {
+   "fieldname": "version_details",
+   "fieldtype": "Data",
+   "label": "Version Details"
+  },
+  {
+   "fieldname": "verification_section",
+   "fieldtype": "Section Break",
+   "label": "Verification"
+  },
+  {
+   "fieldname": "verification_steps",
+   "fieldtype": "Table",
+   "label": "Verification Steps",
+   "options": "KSO Verification Step"
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Table",
+   "label": "Evidence",
+   "options": "KSO Evidence"
+  },
+  {
+   "fieldname": "rca_section",
+   "fieldtype": "Section Break",
+   "label": "Root Cause Analysis"
+  },
+  {
+   "fieldname": "root_cause_category",
+   "fieldtype": "Select",
+   "label": "Root Cause Category",
+   "options": "\nConfiguration Issue\nPermission Issue\nData Issue\nData Corruption\nSQL/Report Defect\nZebra Index Failure\nElasticsearch Failure\nSolr Failure\nCron Failure\nSMTP Failure\nSIP Connectivity\nCustomization Defect\nUpgrade Regression\nServer Resource Issue\nDatabase Issue\nNetwork Issue\nUnknown/Pending"
+  },
+  {
+   "fieldname": "rca_entries",
+   "fieldtype": "Table",
+   "label": "RCA Entries",
+   "options": "KSO RCA Entry"
+  },
+  {
+   "fieldname": "resolution_section",
+   "fieldtype": "Section Break",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "resolution_type",
+   "fieldtype": "Select",
+   "label": "Resolution Type",
+   "options": "\nConfiguration Update\nData Correction\nSQL Fix\nReindex\nRestart Service\nPatch Applied\nPermission Update\nCache Clear\nCustom Code Fix\nRollback\nWorkaround\nMonitoring Only"
+  },
+  {
+   "fieldname": "resolution_actions",
+   "fieldtype": "Table",
+   "label": "Resolution Actions",
+   "options": "KSO Resolution Action"
+  },
+  {
+   "default": "0",
+   "fieldname": "permanent_fix_applied",
+   "fieldtype": "Check",
+   "label": "Permanent Fix Applied"
+  },
+  {
+   "default": "0",
+   "fieldname": "preventive_action_required",
+   "fieldtype": "Check",
+   "label": "Preventive Action Required"
+  },
+  {
+   "fieldname": "resolution_summary",
+   "fieldtype": "Text Editor",
+   "label": "Resolution Summary"
+  },
+  {
+   "fieldname": "testing_section",
+   "fieldtype": "Section Break",
+   "label": "Testing & Closure"
+  },
+  {
+   "fieldname": "testing_results",
+   "fieldtype": "Table",
+   "label": "Testing Results",
+   "options": "KSO Testing Result"
+  },
+  {
+   "default": "0",
+   "fieldname": "client_confirmation",
+   "fieldtype": "Check",
+   "label": "Client Confirmation"
+  },
+  {
+   "fieldname": "escalation_section",
+   "fieldtype": "Section Break",
+   "label": "SLA / Escalation"
+  },
+  {
+   "default": "0",
+   "fieldname": "escalated",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Escalated"
+  },
+  {
+   "default": "0",
+   "fieldname": "escalation_level",
+   "fieldtype": "Int",
+   "label": "Escalation Level"
+  },
+  {
+   "fieldname": "sla_due",
+   "fieldtype": "Datetime",
+   "label": "SLA Due"
+  },
+  {
+   "fieldname": "first_response_time",
+   "fieldtype": "Datetime",
+   "label": "First Response Time"
+  },
+  {
+   "fieldname": "resolved_on",
+   "fieldtype": "Datetime",
+   "label": "Resolved On"
+  },
+  {
+   "fieldname": "column_break_uwh3v",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_u5ydm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_mvhc2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_gh8rh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ud3dp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_p5iap",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bfdod",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-20 14:43:08.176310",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "KSO Support Issue",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Senior Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Infra Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Reporting Specialist",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Client Viewer",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "subject"
+}

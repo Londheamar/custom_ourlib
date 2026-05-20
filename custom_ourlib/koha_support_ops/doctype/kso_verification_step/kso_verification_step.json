@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-20 11:50:33.058392",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "verification_step",
+  "completed",
+  "notes",
+  "verified_by",
+  "verification_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "verification_step",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Verification Step",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "completed",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Completed"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Notes"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Verified By",
+   "options": "User"
+  },
+  {
+   "default": "Now",
+   "fieldname": "verification_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Verification Time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-20 12:27:17.525587",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "KSO Verification Step",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-20 11:50:33.726023",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rca_type",
+  "description",
+  "confirmed",
+  "identified_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "rca_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "RCA Type",
+   "options": "\nConfiguration Issue\nPermission Issue\nData Issue\nData Corruption\nSQL/Report Defect\nZebra Index Failure\nElasticsearch Failure\nSolr Failure\nCron Failure\nSMTP Failure\nSIP Connectivity\nCustomization Defect\nUpgrade Regression\nServer Resource Issue\nDatabase Issue\nNetwork Issue\nUnknown/Pending"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "default": "0",
+   "fieldname": "confirmed",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Confirmed"
+  },
+  {
+   "fieldname": "identified_by",
+   "fieldtype": "Link",
+   "label": "Identified By",
+   "options": "User"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-20 11:50:33.726023",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "KSO RCA Entry",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

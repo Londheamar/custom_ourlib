@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:template_name",
+ "creation": "2026-05-20 11:50:34.356431",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "product",
+  "module",
+  "description",
+  "steps_section",
+  "verification_steps"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Template Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Product",
+   "options": "\nKoha\nVuFind\nKoha + VuFind\nSIP\nSMTP\nSolr\nElasticsearch\nZebra\nApache/Nginx\nDatabase\nServer/Infrastructure"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Module",
+   "options": "\nCirculation\nCataloguing\nAcquisitions\nSerials\nReports\nOPAC\nPatron Management\nSIP2\nNotices\nCron Jobs\nAuthorities\nMARC Framework\nOffline Circulation\nSearch\nSolr Index\nAuthentication\nFacets\nOPAC Integration\nDiscovery UI\nUser Accounts\nAPI Integration\nFootfall\nEmail\nLogin/Permissions\nData/Items\nOther"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "steps_section",
+   "fieldtype": "Section Break",
+   "label": "Checklist Steps"
+  },
+  {
+   "fieldname": "verification_steps",
+   "fieldtype": "Table",
+   "label": "Verification Steps",
+   "options": "KSO Verification Step"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-20 11:50:34.356431",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "KSO SOP Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Senior Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Infra Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Reporting Specialist",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Client Viewer",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "template_name"
+}

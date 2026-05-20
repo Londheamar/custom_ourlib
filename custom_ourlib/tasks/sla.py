@@ -1,0 +1,32 @@
+# tasks/sla.py
+# Purpose: Hourly SLA escalation check for KSO Support Issue.
+
+import frappe
+from frappe.utils import now_datetime, get_datetime, add_to_date
+
+SLA_HOURS = {
+    "Sev-1 Critical": 1,
+    "Sev-2 High": 4,
+    "Sev-3 Medium": 24,
+    "Sev-4 Low": 72,
+}
+
+
+def check_sla():
+    issues = frappe.get_all(
+        "KSO Support Issue",
+        filters={"support_status": ["not in", ["Resolved", "Closed"]]},
+        fields=["name", "creation", "severity", "escalated", "escalation_level"],
+        limit_page_length=500,
+    )
+    current = now_datetime()
+    for issue in issues:
+        hours = SLA_HOURS.get(issue.severity, 24)
+        due = add_to_date(get_datetime(issue.creation), hours=hours)
+        if current > due and not issue.escalated:
+            doc = frappe.get_doc("KSO Support Issue", issue.name)
+            doc.escalated = 1
+            doc.escalation_level = (doc.escalation_level or 0) + 1
+            doc.add_comment("Comment", f"SLA breached. Escalated automatically. SLA target: {hours} hours.")
+            doc.save(ignore_permissions=True)
+    frappe.db.commit()
