@@ -356,7 +356,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-05-20 17:38:53.874893",
+ "modified": "2026-06-01 13:25:25.748291",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",
@@ -464,5 +464,7 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "subject"
+ "title_field": "subject",
+ "track_changes": 1,
+ "track_views": 1
 }
