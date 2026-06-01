@@ -25,7 +25,7 @@
    "label": "Monthly Ticket Trend"
   }
  ],
- "content": "[{\"id\":\"D6C628WsY2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ourlib</span>\",\"col\":12}},{\"id\":\"GzuMe-oo81\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Sev-1\",\"col\":3}},{\"id\":\"F8Y-Wdy_Bs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"SLA Breaches\",\"col\":3}},{\"id\":\"H9KjlMj0Dl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Client\",\"col\":3}},{\"id\":\"erWV7PR2bx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Resolved This Month\",\"col\":3}},{\"id\":\"_PelrlbTOq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reopened Tickets\",\"col\":3}},{\"id\":\"C5-MjdG-Ed\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Mobile Applications - Monthly\",\"col\":12}},{\"id\":\"sXLRtjmmC6\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"fykquHjHad\",\"type\":\"card\",\"data\":{\"card_name\":\"Mobile Application\",\"col\":4}},{\"id\":\"r7dq51BsfV\",\"type\":\"card\",\"data\":{\"card_name\":\"Utilities\",\"col\":4}},{\"id\":\"AfV-sxUw-0\",\"type\":\"card\",\"data\":{\"card_name\":\"Koha Support Ops\",\"col\":4}},{\"id\":\"Zb5mALt1yP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"pGfUYhlfXz\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Open Tickets by Severity\",\"col\":6}},{\"id\":\"8H7JQMXfaG\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Tickets by Module\",\"col\":6}},{\"id\":\"1F2ihfBw98\",\"type\":\"chart\",\"data\":{\"chart_name\":\"RCA Distribution\",\"col\":6}},{\"id\":\"qnKLT-g6b4\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Monthly Ticket Trend\",\"col\":6}},{\"id\":\"1Se-qt84Im\",\"type\":\"chart\",\"data\":{\"chart_name\":\"SLA Compliance\",\"col\":12}}]",
+ "content": "[{\"id\":\"D6C628WsY2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ourlib</span>\",\"col\":12}},{\"id\":\"GzuMe-oo81\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Sev-1\",\"col\":3}},{\"id\":\"F8Y-Wdy_Bs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"SLA Breaches\",\"col\":3}},{\"id\":\"H9KjlMj0Dl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Client\",\"col\":3}},{\"id\":\"erWV7PR2bx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Resolved This Month\",\"col\":3}},{\"id\":\"_PelrlbTOq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reopened Tickets\",\"col\":3}},{\"id\":\"C5-MjdG-Ed\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Mobile Applications - Monthly\",\"col\":12}},{\"id\":\"sXLRtjmmC6\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"fykquHjHad\",\"type\":\"card\",\"data\":{\"card_name\":\"Mobile Application\",\"col\":4}},{\"id\":\"r7dq51BsfV\",\"type\":\"card\",\"data\":{\"card_name\":\"Utils\",\"col\":4}},{\"id\":\"AfV-sxUw-0\",\"type\":\"card\",\"data\":{\"card_name\":\"Koha Support Ops\",\"col\":4}},{\"id\":\"Zb5mALt1yP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"pGfUYhlfXz\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Open Tickets by Severity\",\"col\":6}},{\"id\":\"8H7JQMXfaG\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Tickets by Module\",\"col\":6}},{\"id\":\"1F2ihfBw98\",\"type\":\"chart\",\"data\":{\"chart_name\":\"RCA Distribution\",\"col\":6}},{\"id\":\"qnKLT-g6b4\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Monthly Ticket Trend\",\"col\":6}},{\"id\":\"1Se-qt84Im\",\"type\":\"chart\",\"data\":{\"chart_name\":\"SLA Compliance\",\"col\":12}}]",
  "creation": "2025-12-18 15:19:22.446027",
  "custom_blocks": [],
  "docstatus": 0,
@@ -78,35 +78,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Utilities",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "CSV to MRC",
-   "link_count": 0,
-   "link_to": "CSV To MRC",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Koha admin password update",
-   "link_count": 0,
-   "link_to": "Koha Password Update",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Koha Support Ops",
    "link_count": 3,
    "link_type": "DocType",
@@ -142,9 +113,38 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Utils",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "CSV to MRC",
+   "link_count": 0,
+   "link_to": "CSV To MRC",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Koha admin password update",
+   "link_count": 0,
+   "link_to": "Koha Password Update",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2026-05-20 14:49:03.045138",
+ "modified": "2026-06-01 14:36:57.726243",
  "modified_by": "Administrator",
  "module": "Custom App For Ourlib",
  "name": "Ourlib",
