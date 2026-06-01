@@ -14,6 +14,23 @@ scheduler_events = {
     ]
 }
 
+doc_events = {
+    "*": {
+        "before_insert": "custom_ourlib.custom_doctypewise_naming_series.apply_naming_series",
+    }
+}
+
+
+# before_install = "custom_ourlib.install.before_install"
+#after_install = "custom_ourlib.install_support_ops.run_all"
+
+# Uninstallation
+# ------------
+
+before_uninstall = "custom_ourlib.uninstall_support_ops.run_all"
+# after_uninstall = "custom_ourlib.uninstall.after_uninstall"
+
+
 
 # fixtures = [
 #     {
@@ -87,14 +104,6 @@ scheduler_events = {
 # Installation
 # ------------
 
-# before_install = "custom_ourlib.install.before_install"
-after_install = "custom_ourlib.install_support_ops.run_all"
-
-# Uninstallation
-# ------------
-
-before_uninstall = "custom_ourlib.uninstall_support_ops.run_all"
-# after_uninstall = "custom_ourlib.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------

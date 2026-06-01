@@ -258,6 +258,7 @@ def apply_naming_series(doc, method):
         doc.naming_series = series
 
 
+
 '''
 doc_events = {
     "*": {

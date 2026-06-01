@@ -132,7 +132,7 @@ CHECKLISTS = {
 def run_all():
     frappe.only_for("System Manager")
     create_roles()
-    #create_doctypes()
+    create_doctypes()
     create_workflow()
     create_client_script()
     create_notifications()
