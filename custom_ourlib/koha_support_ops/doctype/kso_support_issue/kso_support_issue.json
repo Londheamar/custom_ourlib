@@ -162,8 +162,9 @@
   },
   {
    "fieldname": "assigned_team",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "label": "Assigned Team",
+   "options": "\nDeveloper Team\nSupport Team",
    "reqd": 1
   },
   {
@@ -248,6 +249,7 @@
    "fieldname": "resolution_type",
    "fieldtype": "Select",
    "label": "Resolution Type",
+   "mandatory_depends_on": "eval:doc.support_status == \"Resolved\"",
    "options": "\nConfiguration Update\nData Correction\nSQL Fix\nReindex\nRestart Service\nPatch Applied\nPermission Update\nCache Clear\nCustom Code Fix\nRollback\nWorkaround\nMonitoring Only"
   },
   {
@@ -271,7 +273,8 @@
   {
    "fieldname": "resolution_summary",
    "fieldtype": "Text Editor",
-   "label": "Resolution Summary"
+   "label": "Resolution Summary",
+   "mandatory_depends_on": "eval:doc.support_status == \"Resolved\""
   },
   {
    "fieldname": "testing_section",
@@ -356,7 +359,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-01 13:25:25.748291",
+ "modified": "2026-06-01 14:16:16.565391",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",
