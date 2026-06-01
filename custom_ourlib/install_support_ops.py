@@ -9,15 +9,15 @@ from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 CREATE_DEMO_DATA = False
 
 ROLES = [
-    "Support Agent",
-    "Support Engineer",
-    "Senior Engineer",
-    "Infra Administrator",
-    "Reporting Specialist",
-    "QA Engineer",
-    "Support Manager",
-    "Client Viewer",
-    "Discovery Team",
+    "OurEmp",
+    "OurEmp",
+    "OurEmp",
+    "OurEmp",
+    "OurEmp",
+    "OurEmp",
+    "OurEmp",
+    "OurEmp",
+    "OurEmp",
 ]
 
 SELECTS = {
@@ -132,7 +132,7 @@ CHECKLISTS = {
 def run_all():
     frappe.only_for("System Manager")
     create_roles()
-    create_doctypes()
+    #create_doctypes()
     create_workflow()
     create_client_script()
     create_notifications()
@@ -182,15 +182,15 @@ def ensure_doctype(name, module, fields, istable=0, autoname=None, title_field=N
 
 def add_permissions(doc):
     perm_map = [
-        ("System Manager", 0, 1, 1, 1, 1, 0, 0),
-        ("Support Manager", 0, 1, 1, 1, 1, 0, 0),
-        ("Senior Engineer", 0, 1, 1, 1, 1, 0, 0),
-        ("Support Engineer", 0, 1, 1, 1, 0, 0, 0),
-        ("Support Agent", 0, 1, 1, 1, 0, 0, 0),
-        ("QA Engineer", 0, 1, 1, 0, 0, 0, 0),
-        ("Infra Administrator", 0, 1, 1, 0, 0, 0, 0),
-        ("Reporting Specialist", 0, 1, 1, 0, 0, 0, 0),
-        ("Client Viewer", 0, 1, 0, 0, 0, 0, 0),
+        ("OurEmp", 0, 1, 1, 1, 1, 0, 0),
+        ("OurEmp", 0, 1, 1, 1, 1, 0, 0),
+        ("OurEmp", 0, 1, 1, 1, 1, 0, 0),
+        ("OurEmp", 0, 1, 1, 1, 0, 0, 0),
+        ("OurEmp", 0, 1, 1, 1, 0, 0, 0),
+        ("OurEmp", 0, 1, 1, 0, 0, 0, 0),
+        ("OurEmp", 0, 1, 1, 0, 0, 0, 0),
+        ("OurEmp", 0, 1, 1, 0, 0, 0, 0),
+        ("OurEmp", 0, 1, 0, 0, 0, 0, 0),
     ]
 
     for role, level, read, write, create, delete, submit, cancel in perm_map:
@@ -354,21 +354,21 @@ def create_workflow():
     ]
 
     transitions = [
-        ("New", "Triage", "Start Triage", "Support Agent"),
-        ("Triage", "Investigation", "Investigate", "Support Engineer"),
-        ("Investigation", "Pending Client", "Request Client Info", "Support Engineer"),
-        ("Investigation", "Pending Vendor", "Send to Vendor", "Support Engineer"),
-        ("Investigation", "Fix In Progress", "Start Fix", "Support Engineer"),
-        ("Pending Client", "Investigation", "Resume Investigation", "Support Engineer"),
-        ("Pending Vendor", "Investigation", "Vendor Response Received", "Support Engineer"),
-        ("Fix In Progress", "Testing", "Send to Testing", "Senior Engineer"),
-        ("Testing", "Fix In Progress", "Testing Failed", "QA Engineer"),
-        ("Testing", "Monitoring", "Start Monitoring", "QA Engineer"),
-        ("Monitoring", "Resolved", "Resolve", "Support Manager"),
-        ("Resolved", "Closed", "Close", "Support Manager"),
-        ("Closed", "Reopened", "Reopen", "Support Manager"),
-        ("Resolved", "Reopened", "Reopen", "Support Manager"),
-        ("Reopened", "Investigation", "Investigate Reopened", "Support Engineer"),
+        ("New", "Triage", "Start Triage", "OurEmp"),
+        ("Triage", "Investigation", "Investigate", "OurEmp"),
+        ("Investigation", "Pending Client", "Request Client Info", "OurEmp"),
+        ("Investigation", "Pending Vendor", "Send to Vendor", "OurEmp"),
+        ("Investigation", "Fix In Progress", "Start Fix", "OurEmp"),
+        ("Pending Client", "Investigation", "Resume Investigation", "OurEmp"),
+        ("Pending Vendor", "Investigation", "Vendor Response Received", "OurEmp"),
+        ("Fix In Progress", "Testing", "Send to Testing", "OurEmp"),
+        ("Testing", "Fix In Progress", "Testing Failed", "OurEmp"),
+        ("Testing", "Monitoring", "Start Monitoring", "OurEmp"),
+        ("Monitoring", "Resolved", "Resolve", "OurEmp"),
+        ("Resolved", "Closed", "Close", "OurEmp"),
+        ("Closed", "Reopened", "Reopen", "OurEmp"),
+        ("Resolved", "Reopened", "Reopen", "OurEmp"),
+        ("Reopened", "Investigation", "Investigate Reopened", "OurEmp"),
     ]
 
     for state, _ in states:
@@ -383,7 +383,7 @@ def create_workflow():
         row = wf.append("states", {})
         row.state = state
         row.doc_status = doc_status
-        row.allow_edit = "Support Manager" if state in ["Resolved", "Closed"] else "Support Engineer"
+        row.allow_edit = "OurEmp" if state in ["Resolved", "Closed"] else "OurEmp"
 
 
     for from_state, to_state, action, role in transitions:
