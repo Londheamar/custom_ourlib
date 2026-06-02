@@ -105,7 +105,6 @@
   {
    "fieldname": "product",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Product",
    "options": "\nKoha\nVuFind\nKoha + VuFind\nSIP\nSMTP\nSolr\nElasticsearch\nZebra\nApache/Nginx\nDatabase\nServer/Infrastructure",
    "reqd": 1
@@ -359,7 +358,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-02 12:06:11.439309",
+ "modified": "2026-06-02 12:12:06.633346",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",
