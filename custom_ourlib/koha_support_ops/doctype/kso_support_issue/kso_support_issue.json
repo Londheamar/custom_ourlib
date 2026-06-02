@@ -112,7 +112,8 @@
   {
    "fieldname": "module",
    "fieldtype": "Select",
-   "in_list_view": 1,
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Module",
    "options": "\nCirculation\nCataloguing\nAcquisitions\nSerials\nReports\nOPAC\nPatron Management\nSIP2\nNotices\nCron Jobs\nAuthorities\nMARC Framework\nOffline Circulation\nSearch\nSolr Index\nAuthentication\nFacets\nOPAC Integration\nDiscovery UI\nUser Accounts\nAPI Integration\nFootfall\nEmail\nLogin/Permissions\nData/Items\nOther",
    "reqd": 1
@@ -144,7 +145,8 @@
    "default": "New",
    "fieldname": "support_status",
    "fieldtype": "Select",
-   "in_list_view": 1,
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Support Status",
    "options": "\nNew\nTriage\nInvestigation\nPending Client\nPending Vendor\nFix In Progress\nTesting\nMonitoring\nResolved\nClosed\nReopened"
   },
@@ -169,6 +171,9 @@
   {
    "fieldname": "assigned_engineer",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Assigned Engineer",
    "options": "User",
    "reqd": 1
@@ -358,7 +363,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-02 12:12:06.633346",
+ "modified": "2026-06-02 13:29:27.087848",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",
