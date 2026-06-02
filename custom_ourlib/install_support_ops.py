@@ -131,15 +131,15 @@ CHECKLISTS = {
 
 def run_all():
     frappe.only_for("System Manager")
-    create_roles()
+    # create_roles()
     #create_doctypes()
-    create_workflow()
-    create_client_script()
-    create_notifications()
-    create_sop_templates()
-    if CREATE_DEMO_DATA:
-        create_demo_data()
-    frappe.db.commit()
+    # create_workflow()
+    # create_client_script()
+    # create_notifications()
+    # create_sop_templates()
+    # if CREATE_DEMO_DATA:
+    #     create_demo_data()
+    # frappe.db.commit()
     print("Koha + VuFind Support Operations package installed successfully.")
 
 
@@ -411,18 +411,20 @@ frappe.ui.form.on('KSO Support Issue', {
         }
         
         if (!frm.is_new()) {
-            frm.add_custom_button(__('Reload Checklist'), function() {
-                frappe.call({
-                    method: 'custom_ourlib.koha_support_ops.doctype.kso_support_issue.kso_support_issue.load_checklist', // Double check this path matches your app structure
-                    args: { issue_name: frm.doc.name },
-                    callback: function(r) {
-                        if(!r.exc) {
-                            frm.reload_doc();
-                            frappe.show_alert({message: __('Checklist reloaded successfully'), indicator: 'green'});
+            if(frm.doc.support_status === "New"){
+                frm.add_custom_button(__('Reload Checklist'), function() {
+                    frappe.call({
+                        method: 'custom_ourlib.koha_support_ops.doctype.kso_support_issue.kso_support_issue.load_checklist', // Double check this path matches your app structure
+                        args: { issue_name: frm.doc.name },
+                        callback: function(r) {
+                            if(!r.exc) {
+                                frm.reload_doc();
+                                frappe.show_alert({message: __('Checklist reloaded successfully'), indicator: 'green'});
+                            }
                         }
-                    }
+                    });
                 });
-            });
+            }
         }
     },
     severity: function(frm) {
