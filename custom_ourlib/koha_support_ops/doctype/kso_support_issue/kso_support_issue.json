@@ -239,7 +239,7 @@
    "fieldname": "root_cause_category",
    "fieldtype": "Select",
    "label": "Root Cause Category",
-   "options": "\nConfiguration Issue\nPermission Issue\nData Issue\nData Corruption\nSQL/Report Defect\nZebra Index Failure\nElasticsearch Failure\nSolr Failure\nCron Failure\nSMTP Failure\nSIP Connectivity\nCustomization Defect\nUpgrade Regression\nServer Resource Issue\nDatabase Issue\nNetwork Issue\nUnknown/Pending"
+   "options": "\nConfiguration Issue\nPermission Issue\nData Issue\nData Corruption\nSQL/Report Defect\nZebra Index Failure\nElasticsearch Failure\nSolr Failure\nCron Failure\nSMTP Failure\nSIP Connectivity\nCustomization\nUpgrade Regression\nServer Resource Issue\nDatabase Issue\nNetwork Issue\nUnknown/Pending"
   },
   {
    "fieldname": "rca_entries",
@@ -257,7 +257,7 @@
    "fieldtype": "Select",
    "label": "Resolution Type",
    "mandatory_depends_on": "eval:doc.support_status == \"Resolved\"",
-   "options": "\nConfiguration Update\nData Correction\nSQL Fix\nReindex\nRestart Service\nPatch Applied\nPermission Update\nCache Clear\nCustom Code Fix\nRollback\nWorkaround\nMonitoring Only"
+   "options": "\nConfiguration Update\nData Correction\nSQL Fix\nReindex\nRestart Service\nPatch Applied\nPermission Update\nCache Clear\nCustom Code Fix\nRollback\nWorkaround\nMonitoring Only\nCustomization"
   },
   {
    "fieldname": "resolution_actions",
@@ -388,7 +388,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-03 13:19:38.961731",
+ "modified": "2026-06-03 18:03:54.353935",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",
