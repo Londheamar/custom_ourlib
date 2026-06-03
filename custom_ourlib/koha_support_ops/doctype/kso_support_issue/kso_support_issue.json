@@ -109,7 +109,7 @@
    "fieldname": "product",
    "fieldtype": "Select",
    "label": "Product",
-   "options": "\nKoha\nVuFind\nKoha + VuFind\nSIP\nSMTP\nSolr\nElasticsearch\nZebra\nApache/Nginx\nDatabase\nServer/Infrastructure",
+   "options": "\nKoha\nVuFind\nKoha + VuFind\nSIP\nSMTP\nSolr\nElasticsearch\nZebra\nApache/Nginx\nDatabase\nServer/Infrastructure\nWebsite",
    "reqd": 1
   },
   {
@@ -118,7 +118,7 @@
    "in_filter": 1,
    "in_standard_filter": 1,
    "label": "Module",
-   "options": "\nCirculation\nCataloguing\nAcquisitions\nSerials\nReports\nOPAC\nPatron Management\nSIP2\nNotices\nCron Jobs\nAuthorities\nMARC Framework\nOffline Circulation\nSearch\nSolr Index\nAuthentication\nFacets\nOPAC Integration\nDiscovery UI\nUser Accounts\nAPI Integration\nFootfall\nEmail\nLogin/Permissions\nData/Items\nOther",
+   "options": "\nCirculation\nCataloguing\nAcquisitions\nSerials\nReports\nOPAC\nPatron Management\nSIP2\nNotices\nCron Jobs\nAuthorities\nMARC Framework\nOffline Circulation\nSearch\nSolr Index\nAuthentication\nFacets\nOPAC Integration\nDiscovery UI\nUser Accounts\nAPI Integration\nFootfall\nEmail\nLogin/Permissions\nData/Items\nUI Customization\nOther",
    "reqd": 1
   },
   {
@@ -388,7 +388,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-03 18:03:54.353935",
+ "modified": "2026-06-03 18:08:13.213245",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",
