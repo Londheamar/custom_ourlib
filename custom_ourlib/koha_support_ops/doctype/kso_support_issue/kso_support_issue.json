@@ -30,6 +30,8 @@
   "assigned_team",
   "column_break_gh8rh",
   "assigned_engineer",
+  "column_break_yubmk",
+  "to_be_verified_by",
   "description_section",
   "detailed_description",
   "column_break_ud3dp",
@@ -370,12 +372,23 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "column_break_yubmk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_be_verified_by",
+   "fieldtype": "Link",
+   "label": "To be verified by",
+   "options": "User",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-02 16:45:43.856885",
+ "modified": "2026-06-03 13:19:38.961731",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",
