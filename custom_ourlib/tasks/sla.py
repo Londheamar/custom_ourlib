@@ -23,7 +23,7 @@ def check_sla():
     for issue in issues:
         hours = SLA_HOURS.get(issue.severity, 24)
         due = add_to_date(get_datetime(issue.creation), hours=hours)
-        if current > due and not issue.escalated:
+        if current > due:
             doc = frappe.get_doc("KSO Support Issue", issue.name)
 
             doc.flags.ignore_validate = True
