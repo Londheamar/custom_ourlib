@@ -257,7 +257,7 @@
    "fieldtype": "Select",
    "label": "Resolution Type",
    "mandatory_depends_on": "eval:doc.support_status == \"Resolved\"",
-   "options": "\nConfiguration Update\nData Correction\nSQL Fix\nReindex\nRestart Service\nPatch Applied\nPermission Update\nCache Clear\nCustom Code Fix\nRollback\nWorkaround\nMonitoring Only\nCustomization"
+   "options": "\nConfiguration Update\nData Correction\nSQL Fix\nReindex\nRestart Service\nPatch Applied\nPermission Update\nCache Clear\nCustom Code Fix\nRollback\nWorkaround\nMonitoring Only\nCustomization\nCall support"
   },
   {
    "fieldname": "resolution_actions",
@@ -388,7 +388,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-03 18:08:13.213245",
+ "modified": "2026-06-04 12:02:47.633372",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Support Issue",

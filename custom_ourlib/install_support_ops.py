@@ -542,3 +542,4 @@ def load_checklist(issue_name):
     append_checklist(doc)
     doc.save(ignore_permissions=True)
     return True
+
