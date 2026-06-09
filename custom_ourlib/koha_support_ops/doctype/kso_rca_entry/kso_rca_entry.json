@@ -17,13 +17,15 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "RCA Type",
-   "options": "\nConfiguration Issue\nPermission Issue\nData Issue\nData Corruption\nSQL/Report Defect\nZebra Index Failure\nElasticsearch Failure\nSolr Failure\nCron Failure\nSMTP Failure\nSIP Connectivity\nCustomization\nUpgrade Regression\nServer Resource Issue\nDatabase Issue\nNetwork Issue\nUnknown/Pending"
+   "options": "\nConfiguration Issue\nPermission Issue\nData Issue\nData Corruption\nSQL/Report Defect\nZebra Index Failure\nElasticsearch Failure\nSolr Failure\nCron Failure\nSMTP Failure\nSIP Connectivity\nCustomization\nUpgrade Regression\nServer Resource Issue\nDatabase Issue\nNetwork Issue\nUnknown/Pending",
+   "reqd": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Small Text",
    "in_list_view": 1,
-   "label": "Description"
+   "label": "Description",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -35,14 +37,16 @@
   {
    "fieldname": "identified_by",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Identified By",
-   "options": "User"
+   "options": "User",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-06-03 18:04:51.144933",
+ "modified": "2026-06-09 10:27:37.614135",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO RCA Entry",

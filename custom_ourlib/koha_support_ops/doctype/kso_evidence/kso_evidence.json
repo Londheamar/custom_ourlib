@@ -18,35 +18,42 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Evidence Type",
-   "options": "\nScreenshot\nError Message\nApplication Log\nSQL Error\nBrowser Console\nCron Log\nEmail Log\nService Status\nOther"
+   "options": "\nScreenshot\nError Message\nApplication Log\nSQL Error\nBrowser Console\nCron Log\nEmail Log\nService Status\nOther",
+   "reqd": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Small Text",
    "in_list_view": 1,
-   "label": "Description"
+   "label": "Description",
+   "reqd": 1
   },
   {
    "fieldname": "attachment",
    "fieldtype": "Attach",
+   "in_list_view": 1,
    "label": "Attachment"
   },
   {
    "fieldname": "log_snippet",
    "fieldtype": "Code",
-   "label": "Log Snippet"
+   "in_list_view": 1,
+   "label": "Log Snippet",
+   "reqd": 1
   },
   {
    "fieldname": "collected_by",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Collected By",
-   "options": "User"
+   "options": "User",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-05-20 11:50:33.529532",
+ "modified": "2026-06-09 10:29:01.343507",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "KSO Evidence",
