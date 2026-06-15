@@ -2,7 +2,7 @@
 # Purpose: Hourly SLA escalation check for KSO Support Issue.
 import frappe
 from frappe.utils import now_datetime, get_datetime, add_to_date
-from datetime import time
+from datetime import datetime, timedelta, time
 
 SLA_HOURS = {
     "Sev-1 Critical": 1,
@@ -27,6 +27,35 @@ def is_working_time():
     return WORK_START <= current_time <= WORK_END
 
 
+
+def get_business_hours_elapsed(start_dt, end_dt):
+    """
+    Returns full business hours between start_dt and end_dt.
+    Excludes Saturdays and Sundays.
+    """
+    if end_dt <= start_dt:
+        return 0
+
+    total_seconds = 0
+    current_day = start_dt.date()
+
+    while current_day <= end_dt.date():
+
+        # Skip weekends
+        if current_day.weekday() < 5:
+            work_start = datetime.combine(current_day, WORK_START)
+            work_end = datetime.combine(current_day, WORK_END)
+
+            period_start = max(start_dt, work_start)
+            period_end = min(end_dt, work_end)
+
+            if period_end > period_start:
+                total_seconds += (period_end - period_start).total_seconds()
+
+        current_day += timedelta(days=1)
+
+    return int(total_seconds // 3600)
+
 def check_sla():
     # Skip entire job outside business hours
     if not is_working_time():
@@ -48,11 +77,14 @@ def check_sla():
         if current > due:
             doc = frappe.get_doc("KSO Support Issue", issue.name)
 
+            business_hours_exceeded = get_business_hours_elapsed(due, current)
+
             doc.flags.ignore_validate = True
             doc.flags.ignore_mandatory = True
 
             doc.escalated = 1
-            doc.escalation_level = (doc.escalation_level or 0) + 1
+            doc.escalation_level = max(1, business_hours_exceeded)
+            
 
             doc.add_comment(
                 "Comment",
