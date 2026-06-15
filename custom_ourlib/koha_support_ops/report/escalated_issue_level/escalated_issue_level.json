@@ -1,0 +1,51 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2026-06-15 12:54:31.130594",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2026-06-15 12:57:40.442114",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "Escalated issue level",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    name AS \"Issue ID:Link/KSO Support Issue:180\",\n    subject AS \"Subject:Link/KSO Support Issue:250\",\n    assigned_engineer AS \"Assigned Engineer:Link/User:180\",\n    to_be_verified_by as \"To Be Verified By:Link/User\",\n    severity AS \"Severity:Data:120\",\n    priority AS \"Priority:Data:120\",\n    support_status AS \"Status:Data:120\",\n    escalation_level AS \"Escalation Level:Int:120\",\n    sla_due AS \"SLA Due:Datetime:180\",\n    TIMESTAMPDIFF(HOUR, sla_due, NOW()) AS \"Hours Over SLA:Int:120\",\n    first_response_time AS \"First Response:Datetime:180\",\n    resolved_on AS \"Resolved On:Datetime:180\"\nFROM `tabKSO Support Issue`\nWHERE escalated = 1\nAND support_status NOT IN ('Resolved', 'Closed')\nORDER BY escalation_level DESC, sla_due ASC",
+ "ref_doctype": "KSO Support Issue",
+ "report_name": "Escalated issue level",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Support Manager"
+  },
+  {
+   "role": "Senior Engineer"
+  },
+  {
+   "role": "Support Engineer"
+  },
+  {
+   "role": "Support Agent"
+  },
+  {
+   "role": "QA Engineer"
+  },
+  {
+   "role": "Infra Administrator"
+  },
+  {
+   "role": "Reporting Specialist"
+  },
+  {
+   "role": "Client Viewer"
+  }
+ ]
+}
