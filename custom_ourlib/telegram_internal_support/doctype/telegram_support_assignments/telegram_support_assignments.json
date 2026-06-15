@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-09 18:19:45.607358",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_user",
+  "ts_sent",
+  "ts_pass",
+  "ts_ack",
+  "ts_auto_passed"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "ts_user",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "columns": 2,
+   "fieldname": "ts_sent",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Sent"
+  },
+  {
+   "columns": 2,
+   "fieldname": "ts_pass",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Pass"
+  },
+  {
+   "columns": 2,
+   "fieldname": "ts_ack",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Acknowledge"
+  },
+  {
+   "columns": 2,
+   "fieldname": "ts_auto_passed",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Auto Passed"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-09 18:23:21.936421",
+ "modified_by": "Administrator",
+ "module": "Telegram Internal Support",
+ "name": "Telegram support assignments",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
