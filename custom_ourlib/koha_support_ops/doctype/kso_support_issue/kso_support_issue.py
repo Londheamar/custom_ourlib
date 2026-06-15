@@ -3,6 +3,14 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.utils import now_datetime, add_to_date
+
+SLA_HOURS = {
+    "Sev-1 Critical": 1,
+    "Sev-2 High": 4,
+    "Sev-3 Medium": 24,
+    "Sev-4 Low": 72,
+}
 
 class KSOSupportIssue(Document):
     def before_save(self):
@@ -12,6 +20,33 @@ class KSOSupportIssue(Document):
         # Populate if the checklist table is currently completely empty
         if not self.get("verification_steps"):
             self.reload_checklist_data()
+        
+        self.set_sla_due()
+        self.set_resolved_on()
+
+    def set_sla_due(self):
+        """Populate sla_due based on severity if not already set."""
+        if not self.sla_due and self.severity in SLA_HOURS:
+            base_time = self.creation or now_datetime()
+            self.sla_due = add_to_date(
+                base_time,
+                hours=SLA_HOURS[self.severity],
+                as_datetime=True,
+            )
+
+    def set_resolved_on(self):
+        """Set resolved_on when support_status changes to Resolved."""
+        if self.support_status == "Resolved":
+            # Only set once when transitioning to Resolved
+            if self.is_new():
+                self.resolved_on = now_datetime()
+            else:
+                old_doc = self.get_doc_before_save()
+                if (
+                    not old_doc
+                    or old_doc.support_status != "Resolved"
+                ):
+                    self.resolved_on = now_datetime()
 
     def reload_checklist_data(self):
         self.set("verification_steps", [])
