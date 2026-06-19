@@ -1,0 +1,400 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-18 15:18:58.267699",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "server_info_section",
+  "clientcustomer",
+  "koha_version",
+  "column_break_rg1fa",
+  "server_type",
+  "koha_staff_admin_user",
+  "column_break_wktoi",
+  "server_ip",
+  "koha_staff_admin_pass",
+  "pre_requisites",
+  "lamp",
+  "column_break_4qes5",
+  "perl_and_koha_dependancies",
+  "koha_installation_section",
+  "database_setup",
+  "zebra_enabled",
+  "column_break_evxwy",
+  "koha_installed_server",
+  "zebra_indexing_done",
+  "column_break_yiklj",
+  "koha_installed_wewb",
+  "search_tested_working",
+  "email_setup_testing_section",
+  "is_email_configured",
+  "section_break_rchv1",
+  "circulation_notices_enabled",
+  "column_break_b9irl",
+  "due_notices_enabled",
+  "column_break_fbaqt",
+  "all_notices_testing",
+  "auto_start_cron_setup",
+  "all_auto_start_enabled",
+  "column_break_0egel",
+  "koha_cron_enabled",
+  "column_break_s54fg",
+  "db_backup_cron_enabled",
+  "opac_customization_section",
+  "opac_customized",
+  "data_migration_section",
+  "data_extracted",
+  "column_break_o6bdt",
+  "data_formatted",
+  "column_break_lfsth",
+  "data_imported",
+  "column_break_48bsc",
+  "tested_and_searching",
+  "final_section",
+  "koha_training_completed",
+  "column_break_ws8lb",
+  "completion_certificate_sent",
+  "section_break_foqlr",
+  "verified_by",
+  "column_break_on17e",
+  "verification_date",
+  "column_break_ncjlr",
+  "verified_by_sign"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Koha Installation Checklist",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "pre_requisites",
+   "fieldtype": "Section Break",
+   "label": "Pre-requisites Installed"
+  },
+  {
+   "default": "0",
+   "fieldname": "perl_and_koha_dependancies",
+   "fieldtype": "Check",
+   "label": "Perl and koha Module Installed"
+  },
+  {
+   "default": "0",
+   "fieldname": "lamp",
+   "fieldtype": "Check",
+   "label": "LAMP Installed"
+  },
+  {
+   "fieldname": "server_info_section",
+   "fieldtype": "Section Break",
+   "label": "Server Info"
+  },
+  {
+   "fieldname": "clientcustomer",
+   "fieldtype": "Link",
+   "label": "Client/Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "server_ip",
+   "fieldtype": "Data",
+   "label": "Server IP"
+  },
+  {
+   "fieldname": "column_break_rg1fa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "server_type",
+   "fieldtype": "Select",
+   "label": "Server Type",
+   "options": "\nCloud\nLocal"
+  },
+  {
+   "fieldname": "column_break_wktoi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "koha_staff_admin_user",
+   "fieldtype": "Data",
+   "label": "Koha Staff Admin User"
+  },
+  {
+   "fieldname": "koha_staff_admin_pass",
+   "fieldtype": "Data",
+   "label": "Koha Staff Admin Pass"
+  },
+  {
+   "fieldname": "column_break_4qes5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "koha_installation_section",
+   "fieldtype": "Section Break",
+   "label": "Koha Installation"
+  },
+  {
+   "fieldname": "koha_version",
+   "fieldtype": "Float",
+   "label": "Koha Version"
+  },
+  {
+   "default": "0",
+   "fieldname": "koha_installed_server",
+   "fieldtype": "Check",
+   "label": "Koha Installed - Server"
+  },
+  {
+   "default": "0",
+   "fieldname": "zebra_enabled",
+   "fieldtype": "Check",
+   "label": "Zebra Installed & Service Enabled"
+  },
+  {
+   "fieldname": "column_break_evxwy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "database_setup",
+   "fieldtype": "Check",
+   "label": "Database Setup"
+  },
+  {
+   "default": "0",
+   "fieldname": "koha_installed_wewb",
+   "fieldtype": "Check",
+   "label": "Koha Installed - Web"
+  },
+  {
+   "default": "0",
+   "fieldname": "zebra_indexing_done",
+   "fieldtype": "Check",
+   "label": "Zebra Indexing Done"
+  },
+  {
+   "default": "0",
+   "fieldname": "search_tested_working",
+   "fieldtype": "Check",
+   "label": "Search Tested & Working"
+  },
+  {
+   "fieldname": "column_break_yiklj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email_setup_testing_section",
+   "fieldtype": "Section Break",
+   "label": "Email Setup & Testing"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_email_configured",
+   "fieldtype": "Check",
+   "label": "Is Email Configured"
+  },
+  {
+   "fieldname": "section_break_rchv1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "description": "Check-in, Check-out, Renewal",
+   "fieldname": "circulation_notices_enabled",
+   "fieldtype": "Check",
+   "label": "Circulation Notices Enabled"
+  },
+  {
+   "fieldname": "column_break_b9irl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Advance, Due, Overdue ",
+   "fieldname": "due_notices_enabled",
+   "fieldtype": "Check",
+   "label": "Due Notices Enabled"
+  },
+  {
+   "fieldname": "column_break_fbaqt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "I Have Testing Notices & Getting Sent.",
+   "fieldname": "all_notices_testing",
+   "fieldtype": "Check",
+   "label": "All Notices Tested & Working"
+  },
+  {
+   "fieldname": "opac_customization_section",
+   "fieldtype": "Section Break",
+   "label": "Opac Customization"
+  },
+  {
+   "default": "0",
+   "fieldname": "opac_customized",
+   "fieldtype": "Check",
+   "label": "Opac Customized"
+  },
+  {
+   "fieldname": "data_migration_section",
+   "fieldtype": "Section Break",
+   "label": "Data Migration"
+  },
+  {
+   "default": "0",
+   "fieldname": "data_extracted",
+   "fieldtype": "Check",
+   "label": "Data Extracted"
+  },
+  {
+   "fieldname": "column_break_o6bdt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "data_formatted",
+   "fieldtype": "Check",
+   "label": "Data Formatted"
+  },
+  {
+   "fieldname": "column_break_lfsth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "data_imported",
+   "fieldtype": "Check",
+   "label": "Data Imported"
+  },
+  {
+   "fieldname": "column_break_48bsc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "tested_and_searching",
+   "fieldtype": "Check",
+   "label": "Tested and searching"
+  },
+  {
+   "fieldname": "auto_start_cron_setup",
+   "fieldtype": "Section Break",
+   "label": "Auto Start & Cron Setup"
+  },
+  {
+   "default": "0",
+   "description": "Zebra, MySQL, Apache2, SIP (If Enabled), Background Jobs",
+   "fieldname": "all_auto_start_enabled",
+   "fieldtype": "Check",
+   "label": "All Auto Start Enabled"
+  },
+  {
+   "fieldname": "column_break_0egel",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Koha zebra indexing, Accruing fine, Email notices, Database cleanup",
+   "fieldname": "koha_cron_enabled",
+   "fieldtype": "Check",
+   "label": "Koha Cron Enabled"
+  },
+  {
+   "fieldname": "column_break_s54fg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "db_backup_cron_enabled",
+   "fieldtype": "Check",
+   "label": "DB Backup Cron Enabled"
+  },
+  {
+   "fieldname": "final_section",
+   "fieldtype": "Section Break",
+   "label": "Final"
+  },
+  {
+   "default": "0",
+   "fieldname": "koha_training_completed",
+   "fieldtype": "Check",
+   "label": "Koha Training Completed"
+  },
+  {
+   "fieldname": "column_break_ws8lb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "completion_certificate_sent",
+   "fieldtype": "Check",
+   "label": "Completion Certificate Sent"
+  },
+  {
+   "fieldname": "section_break_foqlr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User"
+  },
+  {
+   "fieldname": "verification_date",
+   "fieldtype": "Date",
+   "label": "Verification Date"
+  },
+  {
+   "fieldname": "verified_by_sign",
+   "fieldtype": "Data",
+   "label": "Verified By Sign"
+  },
+  {
+   "fieldname": "column_break_on17e",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ncjlr",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-18 16:23:15.427300",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "Koha Installation Checklist",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_views": 1
+}
