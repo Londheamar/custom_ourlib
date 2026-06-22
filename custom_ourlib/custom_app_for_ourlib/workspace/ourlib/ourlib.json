@@ -121,8 +121,37 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Utils",
+   "label": "Reports",
    "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Open issues with SLA Breach",
+   "link_count": 0,
+   "link_to": "Escalated Issues with SLA Breach",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Closed Issues with SLA Breach",
+   "link_count": 0,
+   "link_to": "Closed - resolved Issues with SLA Breach",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Utils",
+   "link_count": 3,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -150,34 +179,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Reports",
-   "link_count": 2,
+   "label": "Koha Installation Checklist",
+   "link_count": 0,
+   "link_to": "Koha Installation Checklist",
    "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Open issues with SLA Breach",
-   "link_count": 0,
-   "link_to": "Escalated Issues with SLA Breach",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Closed Issues with SLA Breach",
-   "link_count": 0,
-   "link_to": "Closed - resolved Issues with SLA Breach",
-   "link_type": "Report",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2026-06-17 11:21:52.990046",
+ "modified": "2026-06-22 14:14:00.743853",
  "modified_by": "Administrator",
  "module": "Custom App For Ourlib",
  "name": "Ourlib",

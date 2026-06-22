@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SIP-{customer}-{#####}",
+ "creation": "2026-06-22 12:37:00.074704",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "column_break_zwwy6",
+  "rfid_vendor",
+  "section_break_m8eem",
+  "sip_server_ip",
+  "column_break_6dmwb",
+  "raw_port",
+  "column_break_kowqd",
+  "telnet_port",
+  "section_break_lpj2d",
+  "sip_library_code",
+  "column_break_bg7z3",
+  "sip_username",
+  "column_break_5xayv",
+  "sip_user_pass",
+  "section_break_0fmgl",
+  "database_name",
+  "column_break_8uurt",
+  "host_allowed_ip"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zwwy6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rfid_vendor",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "RFID Vendor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_m8eem",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sip_server_ip",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "SIP Server IP",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6dmwb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "raw_port",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Raw Port",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_kowqd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "telnet_port",
+   "fieldtype": "Int",
+   "label": "Telnet Port",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sip_library_code",
+   "fieldtype": "Data",
+   "label": "SIP Library Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bg7z3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sip_username",
+   "fieldtype": "Data",
+   "label": "SIP Username",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5xayv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sip_user_pass",
+   "fieldtype": "Read Only",
+   "label": "SIP User Pass"
+  },
+  {
+   "fieldname": "database_name",
+   "fieldtype": "Data",
+   "label": "Database Name",
+   "reqd": 1
+  },
+  {
+   "description": "<p>Add db user and IP address in Below format. separate each by new line <br>\ndb_user_name : Middleware IP</p>",
+   "fieldname": "host_allowed_ip",
+   "fieldtype": "Text",
+   "label": "Database user and Allowd IP",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_lpj2d",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_0fmgl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_8uurt",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-22 14:12:53.409913",
+ "modified_by": "Administrator",
+ "module": "Koha Support Ops",
+ "name": "SIP Service",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

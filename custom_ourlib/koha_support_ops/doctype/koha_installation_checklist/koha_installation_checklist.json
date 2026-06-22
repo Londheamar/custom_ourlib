@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2026-06-18 15:18:58.267699",
  "default_view": "List",
  "doctype": "DocType",
@@ -30,6 +31,10 @@
   "column_break_yiklj",
   "koha_installed_wewb",
   "search_tested_working",
+  "sip_configuration_section",
+  "is_sip_enabled",
+  "column_break_a64lr",
+  "sip_details",
   "email_setup_testing_section",
   "is_email_configured",
   "section_break_rchv1",
@@ -63,7 +68,8 @@
   "column_break_on17e",
   "verification_date",
   "column_break_ncjlr",
-  "verified_by_sign"
+  "verified_by_sign",
+  "naming_series"
  ],
  "fields": [
   {
@@ -85,13 +91,16 @@
    "default": "0",
    "fieldname": "perl_and_koha_dependancies",
    "fieldtype": "Check",
-   "label": "Perl and koha Module Installed"
+   "label": "Perl and koha Module Installed",
+   "reqd": 1
   },
   {
    "default": "0",
    "fieldname": "lamp",
    "fieldtype": "Check",
-   "label": "LAMP Installed"
+   "in_list_view": 1,
+   "label": "LAMP Installed",
+   "reqd": 1
   },
   {
    "fieldname": "server_info_section",
@@ -101,13 +110,17 @@
   {
    "fieldname": "clientcustomer",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Client/Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "server_ip",
    "fieldtype": "Data",
-   "label": "Server IP"
+   "in_list_view": 1,
+   "label": "Server IP",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_rg1fa",
@@ -116,8 +129,10 @@
   {
    "fieldname": "server_type",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Server Type",
-   "options": "\nCloud\nLocal"
+   "options": "\nCloud\nLocal",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_wktoi",
@@ -129,8 +144,9 @@
    "label": "Koha Staff Admin User"
   },
   {
+   "default": "*",
    "fieldname": "koha_staff_admin_pass",
-   "fieldtype": "Data",
+   "fieldtype": "Read Only",
    "label": "Koha Staff Admin Pass"
   },
   {
@@ -368,15 +384,45 @@
   {
    "fieldname": "column_break_ncjlr",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_sip_enabled",
+   "fieldtype": "Check",
+   "label": "Is SIP Enabled"
+  },
+  {
+   "fieldname": "sip_details",
+   "fieldtype": "Link",
+   "label": "SIP Details",
+   "mandatory_depends_on": "eval:doc.is_sip_enabled===1;",
+   "options": "SIP Service"
+  },
+  {
+   "fieldname": "sip_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "SIP Configuration"
+  },
+  {
+   "fieldname": "column_break_a64lr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "KOHA-CH-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming_series",
+   "options": "KOHA-CH-"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-18 16:23:15.427300",
+ "modified": "2026-06-22 14:10:52.582373",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "Koha Installation Checklist",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
