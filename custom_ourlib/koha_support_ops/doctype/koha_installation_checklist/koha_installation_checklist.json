@@ -9,15 +9,17 @@
  "engine": "InnoDB",
  "field_order": [
   "amended_from",
-  "server_info_section",
   "clientcustomer",
-  "koha_version",
-  "column_break_rg1fa",
+  "column_break_vaoa3",
+  "assigned_eng",
+  "server_info_section",
   "server_type",
   "koha_staff_admin_user",
   "column_break_wktoi",
   "server_ip",
   "koha_staff_admin_pass",
+  "column_break_rg1fa",
+  "koha_version",
   "pre_requisites",
   "lamp",
   "column_break_4qes5",
@@ -105,7 +107,7 @@
   {
    "fieldname": "server_info_section",
    "fieldtype": "Section Break",
-   "label": "Server Info"
+   "label": "Information"
   },
   {
    "fieldname": "clientcustomer",
@@ -411,14 +413,26 @@
    "default": "KOHA-CH-",
    "fieldname": "naming_series",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "naming_series",
    "options": "KOHA-CH-"
+  },
+  {
+   "fieldname": "assigned_eng",
+   "fieldtype": "Link",
+   "label": "Assigned Eng",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vaoa3",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-22 14:10:52.582373",
+ "modified": "2026-06-22 14:48:19.916614",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "Koha Installation Checklist",

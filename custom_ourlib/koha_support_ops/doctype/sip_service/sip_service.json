@@ -133,7 +133,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-22 14:12:53.409913",
+ "modified": "2026-06-22 14:49:24.747788",
  "modified_by": "Administrator",
  "module": "Koha Support Ops",
  "name": "SIP Service",
@@ -155,5 +155,7 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1,
+ "track_views": 1
 }
